@@ -1,0 +1,10 @@
+[2025-10-10] Se creó el proyecto web Maven desde cero.
+[2025-10-10] Se definió la estructura de paquetes: servlets/, cliente/altaLector/.
+[2025-10-11] Se diseñó el formulario HTML para alta de lector.
+[2025-10-11] Se implementó el servlet AltaLectorServlet con manejo de parámetros.
+[2025-10-12] Se generó el cliente SOAP con wsimport desde el WSDL del backend.
+[2025-10-12] Se integraron las clases generadas en src/main/java/cliente/altaLector.
+[2025-10-13] Se configuró el WAR y se desplegó en Tomcat.
+[2025-10-13] Se verificó la conexión entre servlet y servicio SOAP.
+[2025-10-14] Se registró el primer lector exitosamente desde el frontend.
+[2025-10-14] Se creó este changelog para documentar el proceso.
