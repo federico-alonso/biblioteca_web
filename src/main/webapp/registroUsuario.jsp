@@ -40,13 +40,13 @@
 
       <div class="form-group">
         <label for="zona">Zona:</label>
-        <select class="form-control" id="zona" name="zona" required>
-          <option value="BIBLIOTECA_CENTRAL">Centro</option>
-          <option value="ARCHIVO_GENERAL">Sur</option>
-          <option value="SUCURSAL_ESTE">Este</option>
-          <option value="SUCURSAL_OESTE">Oeste</option>
-          <option value="BIBLIOTECA_INFANTIL">Infantil</option>
-        </select>
+            <select class="form-control" id="zona" name="zona" required>
+              <option value="BIBLIOTECA_CENTRAL">BIBLIOTECA_CENTRAL</option>
+              <option value="ARCHIVO_GENERAL">ARCHIVO_GENERAL</option>
+              <option value="SUCURSAL_ESTE">SUCURSAL_ESTE</option>
+              <option value="SUCURSAL_OESTE">SUCURSAL_OESTE</option>
+              <option value="BIBLIOTECA_INFANTIL">BIBLIOTECA_INFANTIL</option>
+            </select>
       </div>
 
       <button type="submit" class="btn btn-success btn-block">Registrar lector</button>

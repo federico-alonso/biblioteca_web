@@ -12,6 +12,10 @@ import cliente.modificarEstadoLector.DtLector;
 import cliente.modificarEstadoLector.LectorNoExisteExcepcion_Exception;
 import cliente.modificarEstadoLector.EstadoLector;
 
+import cliente.modificarZonaLector.ModificarZonaLectorPublishService;
+import cliente.modificarZonaLector.ModificarZonaLectorPublish;
+import cliente.modificarZonaLector.Zona;
+
 import java.io.IOException;
 
 @WebServlet("/ModificarLectorServlet")
@@ -23,22 +27,32 @@ public class ModificarLectorServlet extends HttpServlet {
 
         String correo = request.getParameter("correoLector");
         String nuevoEstadoStr = request.getParameter("nuevoEstado");
+        String nuevaZonaStr = request.getParameter("nuevaZona");
 
-        ModificarEstadoLectorPublishService service = new ModificarEstadoLectorPublishService();
-        ModificarEstadoLectorPublish port = service.getModificarEstadoLectorPublishPort();
+        ModificarEstadoLectorPublishService estadoService = new ModificarEstadoLectorPublishService();
+        ModificarEstadoLectorPublish estadoPort = estadoService.getModificarEstadoLectorPublishPort();
+
+        ModificarZonaLectorPublishService zonaService = new ModificarZonaLectorPublishService();
+        ModificarZonaLectorPublish zonaPort = zonaService.getModificarZonaLectorPublishPort();
 
         try {
-            DtLector lector = port.getDtLectorPorCorreo(correo);
+            DtLector lector = estadoPort.getDtLectorPorCorreo(correo);
             String nombre = lector.getNombre(); // ← el backend espera nombre, no correo
 
             if (nuevoEstadoStr != null) {
                 EstadoLector nuevoEstado = EstadoLector.valueOf(nuevoEstadoStr);
-                port.modificarEstadoLector(nombre, nuevoEstado);
+                estadoPort.modificarEstadoLector(nombre, nuevoEstado);
                 request.setAttribute("mensajeResultado", "Estado modificado correctamente.");
             }
 
+            if (nuevaZonaStr != null) {
+                Zona nuevaZona = Zona.valueOf(nuevaZonaStr);
+                zonaPort.modificarZonaLector(nombre, nuevaZona);
+                request.setAttribute("mensajeResultado", "Zona modificada correctamente.");
+            }
+
             // Refrescar datos del lector después de la modificación
-            lector = port.getDtLectorPorCorreo(correo);
+            lector = estadoPort.getDtLectorPorCorreo(correo);
             request.setAttribute("lector", lector);
             request.getRequestDispatcher("modificarLectorPorBibliotecario.jsp").forward(request, response);
 

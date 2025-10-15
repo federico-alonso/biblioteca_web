@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="cliente.modificarEstadoLector.DtLector" %>
 <%@ page import="cliente.modificarEstadoLector.EstadoLector" %>
+<%@ page import="cliente.modificarEstadoLector.Zona" %>
 <%@ page import="java.text.SimpleDateFormat" %>
 <%@ page import="java.util.Date" %>
 <!DOCTYPE html>
@@ -40,7 +41,7 @@
     %>
         <div class="card shadow-sm mx-auto" style="max-width: 500px;">
             <div class="card-header bg-primary text-white">
-                <h5 class="mb-0">Modificar estado del lector</h5>
+                <h5 class="mb-0">Modificar lector</h5>
             </div>
             <div class="card-body">
                 <form method="post" action="ModificarLectorServlet">
@@ -57,6 +58,10 @@
                         <input type="text" class="form-control" value="<%= lector.getDireccion() %>" disabled>
                     </div>
                     <div class="mb-3">
+                        <label class="form-label">Zona actual</label>
+                        <input type="text" class="form-control" value="<%= lector.getZona() %>" disabled>
+                    </div>
+                    <div class="mb-3">
                         <label class="form-label">Fecha de registro</label>
                         <input type="text" class="form-control" value="<%= fechaStr %>" disabled>
                     </div>
@@ -71,6 +76,18 @@
                                 for (EstadoLector estado : EstadoLector.values()) {
                             %>
                                 <option value="<%= estado.name() %>"><%= estado.name() %></option>
+                            <%
+                                }
+                            %>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Nueva zona</label>
+                        <select name="nuevaZona" class="form-select" required>
+                            <%
+                                for (Zona zona : Zona.values()) {
+                            %>
+                                <option value="<%= zona.name() %>"><%= zona.name() %></option>
                             <%
                                 }
                             %>

@@ -21,6 +21,7 @@ import jakarta.xml.bind.annotation.XmlType;
  *         &lt;element name="direccion" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
  *         &lt;element name="fechaRegistro" type="{http://www.w3.org/2001/XMLSchema}dateTime" minOccurs="0"/&gt;
  *         &lt;element name="estado" type="{http://publicadores/}estadoLector" minOccurs="0"/&gt;
+ *         &lt;element name="zona" type="{http://publicadores/}zona" minOccurs="0"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/extension&gt;
  *   &lt;/complexContent&gt;
@@ -33,7 +34,8 @@ import jakarta.xml.bind.annotation.XmlType;
 @XmlType(name = "dtLector", propOrder = {
     "direccion",
     "fechaRegistro",
-    "estado"
+    "estado",
+    "zona"
 })
 public class DtLector
     extends DtUsuario
@@ -44,6 +46,8 @@ public class DtLector
     protected XMLGregorianCalendar fechaRegistro;
     @XmlSchemaType(name = "string")
     protected EstadoLector estado;
+    @XmlSchemaType(name = "string")
+    protected Zona zona;
 
     /**
      * Gets the value of the direccion property.
@@ -115,6 +119,30 @@ public class DtLector
      */
     public void setEstado(EstadoLector value) {
         this.estado = value;
+    }
+
+    /**
+     * Gets the value of the zona property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link Zona }
+     *     
+     */
+    public Zona getZona() {
+        return zona;
+    }
+
+    /**
+     * Sets the value of the zona property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link Zona }
+     *     
+     */
+    public void setZona(Zona value) {
+        this.zona = value;
     }
 
 }

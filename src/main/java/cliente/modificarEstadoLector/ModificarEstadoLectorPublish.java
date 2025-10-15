@@ -27,16 +27,6 @@ public interface ModificarEstadoLectorPublish {
 
     /**
      * 
-     * @return
-     *     returns cliente.modificarEstadoLector.StringArray
-     */
-    @WebMethod
-    @WebResult(partName = "return")
-    @Action(input = "http://publicadores/ModificarEstadoLectorPublish/listarNombresLectoresRequest", output = "http://publicadores/ModificarEstadoLectorPublish/listarNombresLectoresResponse")
-    public StringArray listarNombresLectores();
-
-    /**
-     * 
      * @param arg1
      * @param arg0
      * @throws LectorNoExisteExcepcion_Exception
@@ -52,6 +42,16 @@ public interface ModificarEstadoLectorPublish {
         EstadoLector arg1)
         throws LectorNoExisteExcepcion_Exception
     ;
+
+    /**
+     * 
+     * @return
+     *     returns cliente.modificarEstadoLector.StringArray
+     */
+    @WebMethod
+    @WebResult(partName = "return")
+    @Action(input = "http://publicadores/ModificarEstadoLectorPublish/listarNombresLectoresRequest", output = "http://publicadores/ModificarEstadoLectorPublish/listarNombresLectoresResponse")
+    public StringArray listarNombresLectores();
 
     /**
      * 
