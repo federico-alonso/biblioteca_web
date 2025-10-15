@@ -11,15 +11,4 @@
         <welcome-file>default.jsp</welcome-file>
     </welcome-file-list>
 
-    <!-- 👇 Agregá esto dentro del <web-app>, no fuera -->
-    <servlet>
-        <servlet-name>AltaLectorServlet</servlet-name>
-        <servlet-class>servlets.AltaLectorServlet</servlet-class>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>AltaLectorServlet</servlet-name>
-        <url-pattern>/altaLector</url-pattern>
-    </servlet-mapping>
-
 </web-app>

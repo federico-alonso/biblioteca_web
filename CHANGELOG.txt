@@ -8,3 +8,9 @@
 [2025-10-13] Se verificó la conexión entre servlet y servicio SOAP.
 [2025-10-14] Se registró el primer lector exitosamente desde el frontend.
 [2025-10-14] Se creó este changelog para documentar el proceso.
+
+[2025-10-15] Se rediseñó la página de login para separar el inicio de sesión del registro.
+[2025-10-15] Se creó la página registroUsuario.jsp con diseño visual mejorado y campos completos.
+[2025-10-15] Se confirmó que el formulario de registro funciona correctamente desde el frontend.
+[2025-10-15] Se detectó un acoplamiento incorrecto en el backend: el publicador usa directamente la clase ControladorAltaLector.
+[2025-10-15] Se decidió refactorizar el publicador para que utilice solo la interfaz IControladorAltaLector.
