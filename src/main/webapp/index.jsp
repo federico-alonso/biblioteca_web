@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>Biblioteca Digital</title>
 
-  <!-- Bootstrap CSS (igual que tu profesor) -->
+  <!-- Bootstrap CSS -->
   <link rel="stylesheet"
         href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
@@ -28,12 +28,9 @@
   <div class="container mt-5">
     <div class="jumbotron text-center">
       <h1 class="display-4">Bienvenido a la Biblioteca Digital</h1>
-      <p class="lead">Seleccioná tu tipo de acceso:</p>
+      <p class="lead">Accedé a tu cuenta para comenzar:</p>
       <hr class="my-4">
-      <div class="d-flex justify-content-center gap-3">
-        <a href="login.jsp" class="btn btn-primary btn-lg mx-2">Login como Usuario</a>
-        <a href="#" class="btn btn-secondary btn-lg mx-2 disabled" tabindex="-1" aria-disabled="true">Login como Administrador</a>
-      </div>
+      <a href="login.jsp" class="btn btn-primary btn-lg">Iniciar sesión</a>
     </div>
   </div>
 

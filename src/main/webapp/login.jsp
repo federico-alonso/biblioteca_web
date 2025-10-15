@@ -11,7 +11,9 @@
 <body>
   <div class="container mt-5">
     <h2 class="text-center">Ingreso de Usuario</h2>
-    <form action="loginLector" method="post" class="mt-4">
+
+    <!-- Formulario de login -->
+    <form action="LoginServlet" method="post" class="mt-4">
       <div class="form-group">
         <label for="email">Correo electrónico:</label>
         <input type="email" class="form-control" id="email" name="email" required>
@@ -22,19 +24,24 @@
         <input type="password" class="form-control" id="contrasena" name="contrasena" required>
       </div>
 
-      <button type="submit" class="btn btn-primary">Ingresar</button>
+      <button type="submit" class="btn btn-primary btn-block">Ingresar</button>
     </form>
 
-    <div class="text-center mt-3">
+    <!-- Botones de registro -->
+    <div class="text-center mt-4">
       <p>¿No tenés cuenta?</p>
-      <a href="registroUsuario.jsp" class="btn btn-secondary">Registrarse</a>
+      <div class="d-flex justify-content-center">
+        <a href="registroUsuario.jsp" class="btn btn-secondary mr-2">Registrarse como Lector</a>
+        <a href="registroBibliotecario.jsp" class="btn btn-secondary">Registrarse como Bibliotecario</a>
+      </div>
     </div>
 
+    <!-- Mensaje de error -->
     <%
       String mensaje = (String) request.getAttribute("mensaje");
       if (mensaje != null) {
     %>
-      <div class="alert alert-info mt-3"><%= mensaje %></div>
+      <div class="alert alert-info mt-3 text-center"><%= mensaje %></div>
     <%
       }
     %>
