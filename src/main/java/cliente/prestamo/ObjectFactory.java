@@ -90,19 +90,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link DtPrestamoSimple }
-     * 
-     */
-    public DtPrestamoSimple createDtPrestamoSimple() {
-        return new DtPrestamoSimple();
-    }
-
-    /**
      * Create an instance of {@link DtMaterialConPrestamo }
      * 
      */
     public DtMaterialConPrestamo createDtMaterialConPrestamo() {
         return new DtMaterialConPrestamo();
+    }
+
+    /**
+     * Create an instance of {@link DtPrestamoSimple }
+     * 
+     */
+    public DtPrestamoSimple createDtPrestamoSimple() {
+        return new DtPrestamoSimple();
     }
 
     /**
@@ -114,19 +114,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link DtPrestamoSimpleArray }
-     * 
-     */
-    public DtPrestamoSimpleArray createDtPrestamoSimpleArray() {
-        return new DtPrestamoSimpleArray();
-    }
-
-    /**
      * Create an instance of {@link DtMaterialConPrestamoArray }
      * 
      */
     public DtMaterialConPrestamoArray createDtMaterialConPrestamoArray() {
         return new DtMaterialConPrestamoArray();
+    }
+
+    /**
+     * Create an instance of {@link DtPrestamoSimpleArray }
+     * 
+     */
+    public DtPrestamoSimpleArray createDtPrestamoSimpleArray() {
+        return new DtPrestamoSimpleArray();
     }
 
     /**

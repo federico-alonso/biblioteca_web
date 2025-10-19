@@ -27,6 +27,39 @@ public interface PrestamoPublish {
 
     /**
      * 
+     * @param arg0
+     * @return
+     *     returns cliente.prestamo.DtMaterialConPrestamoArray
+     */
+    @WebMethod
+    @WebResult(partName = "return")
+    @Action(input = "http://publicadores/PrestamoPublish/getMaterialesConPrestamoRequest", output = "http://publicadores/PrestamoPublish/getMaterialesConPrestamoResponse")
+    public DtMaterialConPrestamoArray getMaterialesConPrestamo(
+        @WebParam(name = "arg0", partName = "arg0")
+        DtLector arg0);
+
+    /**
+     * 
+     * @return
+     *     returns cliente.prestamo.DtMaterialConPrestamoArray
+     */
+    @WebMethod
+    @WebResult(partName = "return")
+    @Action(input = "http://publicadores/PrestamoPublish/getMaterialesConPrestamoTodosRequest", output = "http://publicadores/PrestamoPublish/getMaterialesConPrestamoTodosResponse")
+    public DtMaterialConPrestamoArray getMaterialesConPrestamoTodos();
+
+    /**
+     * 
+     * @return
+     *     returns cliente.prestamo.DtMaterialArray
+     */
+    @WebMethod
+    @WebResult(partName = "return")
+    @Action(input = "http://publicadores/PrestamoPublish/getListadoMaterialesRequest", output = "http://publicadores/PrestamoPublish/getListadoMaterialesResponse")
+    public DtMaterialArray getListadoMateriales();
+
+    /**
+     * 
      * @return
      *     returns cliente.prestamo.AnyTypeArray
      */
@@ -74,16 +107,6 @@ public interface PrestamoPublish {
     /**
      * 
      * @return
-     *     returns cliente.prestamo.DtMaterialArray
-     */
-    @WebMethod
-    @WebResult(partName = "return")
-    @Action(input = "http://publicadores/PrestamoPublish/getListadoMaterialesRequest", output = "http://publicadores/PrestamoPublish/getListadoMaterialesResponse")
-    public DtMaterialArray getListadoMateriales();
-
-    /**
-     * 
-     * @return
      *     returns cliente.prestamo.DtLectorArray
      */
     @WebMethod
@@ -115,18 +138,5 @@ public interface PrestamoPublish {
     @WebResult(partName = "return")
     @Action(input = "http://publicadores/PrestamoPublish/getNombresLectoresRequest", output = "http://publicadores/PrestamoPublish/getNombresLectoresResponse")
     public StringArray getNombresLectores();
-
-    /**
-     * 
-     * @param arg0
-     * @return
-     *     returns cliente.prestamo.DtMaterialConPrestamoArray
-     */
-    @WebMethod
-    @WebResult(partName = "return")
-    @Action(input = "http://publicadores/PrestamoPublish/getMaterialesConPrestamoRequest", output = "http://publicadores/PrestamoPublish/getMaterialesConPrestamoResponse")
-    public DtMaterialConPrestamoArray getMaterialesConPrestamo(
-        @WebParam(name = "arg0", partName = "arg0")
-        DtLector arg0);
 
 }

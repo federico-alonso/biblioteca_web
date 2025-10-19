@@ -20,6 +20,14 @@
                         Gestión de Usuario
                     </button>
                 </li>
+                <li class="nav-item">
+                    <form action="GestionPrestamosServlet" method="post">
+                        <button type="submit" class="nav-link btn btn-outline-secondary mb-2">
+                            Gestión de Préstamos
+                        </button>
+                    </form>
+                </li>
+                
             </ul>
         </div>
 
