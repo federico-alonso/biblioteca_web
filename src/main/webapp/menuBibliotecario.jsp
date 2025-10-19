@@ -28,7 +28,21 @@
                         </button>
                     </form>
                 </li>
-                
+                <li class="nav-item">
+                    <a class="nav-link btn btn-outline-success mb-2" href="altaDonacionLibro.jsp">
+                        Alta Donación de Libro
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn btn-outline-success mb-2" href="altaDonacionEspecial.jsp">
+                        Alta Donación Especial
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn btn-outline-info mb-2" href="consultarDonaciones.jsp">
+                        Consultar Donaciones
+                    </a>
+                </li>
             </ul>
 
             <hr>
