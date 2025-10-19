@@ -41,10 +41,10 @@ public class LoginServlet extends HttpServlet {
 
             switch (resultado.getTipo()) {
                 case "lector":
-                    response.sendRedirect("menuLector.jsp");
+                    response.sendRedirect(request.getContextPath() + "/menuLector.jsp");
                     break;
                 case "bibliotecario":
-                    response.sendRedirect("menuBibliotecario.jsp");
+                    response.sendRedirect(request.getContextPath() + "/menuBibliotecario.jsp");
                     break;
                 default:
                     request.setAttribute("mensaje", "Tipo de usuario desconocido.");
