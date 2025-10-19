@@ -3,6 +3,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Menú Bibliotecario</title>
     <link rel="stylesheet" href="css/bootstrap.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" crossorigin="anonymous"></script>
@@ -30,7 +31,15 @@
                         Alta Donación Especial
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link btn btn-outline-info mb-2" href="consultarDonaciones.jsp">
+                        Consultar Donaciones
+                    </a>
+                </li>
             </ul>
+
+            <hr>
+            <a href="LogoutServlet" class="btn btn-danger">Cerrar Sesión</a>
         </div>
 
         <!-- Área principal -->
