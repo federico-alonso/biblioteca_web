@@ -5,7 +5,6 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
 
@@ -21,7 +20,6 @@ public class LoginServlet extends HttpServlet {
 
     @Override
     public void init() throws ServletException {
-        // Instanciación del cliente SOAP generado por wsimport
         LoginPublishService service = new LoginPublishService();
         loginService = service.getLoginPublishPort();
     }
@@ -36,8 +34,9 @@ public class LoginServlet extends HttpServlet {
         DtLoginResultado resultado = loginService.login(email, contrasena);
 
         if (resultado != null) {
-            HttpSession session = request.getSession();
-            session.setAttribute("email", email); // Podés guardar más datos si el DTO los expone
+            String nombre = resultado.getUsuario().getNombre(); // ✅ correcto
+ // ← usamos el nombre real del lector
+            request.setAttribute("nombreLector", nombre); // ← propagamos el nombre
 
             switch (resultado.getTipo()) {
                 case "lector":

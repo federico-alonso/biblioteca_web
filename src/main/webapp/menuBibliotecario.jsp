@@ -22,20 +22,13 @@
                     </button>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link btn btn-outline-success mb-2" href="altaDonacionLibro.jsp">
-                        Alta Donación de Libro
-                    </a>
+                    <form action="GestionPrestamosServlet" method="post">
+                        <button type="submit" class="nav-link btn btn-outline-secondary mb-2">
+                            Gestión de Préstamos
+                        </button>
+                    </form>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link btn btn-outline-success mb-2" href="altaDonacionEspecial.jsp">
-                        Alta Donación Especial
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link btn btn-outline-info mb-2" href="consultarDonaciones.jsp">
-                        Consultar Donaciones
-                    </a>
-                </li>
+                
             </ul>
 
             <hr>

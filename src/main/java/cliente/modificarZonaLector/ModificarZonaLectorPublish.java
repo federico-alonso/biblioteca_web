@@ -27,6 +27,16 @@ public interface ModificarZonaLectorPublish {
 
     /**
      * 
+     * @return
+     *     returns cliente.modificarZonaLector.StringArray
+     */
+    @WebMethod
+    @WebResult(partName = "return")
+    @Action(input = "http://publicadores/ModificarZonaLectorPublish/listarNombresLectoresRequest", output = "http://publicadores/ModificarZonaLectorPublish/listarNombresLectoresResponse")
+    public StringArray listarNombresLectores();
+
+    /**
+     * 
      * @param arg1
      * @param arg0
      * @throws LectorNoExisteExcepcion_Exception
@@ -42,15 +52,5 @@ public interface ModificarZonaLectorPublish {
         Zona arg1)
         throws LectorNoExisteExcepcion_Exception
     ;
-
-    /**
-     * 
-     * @return
-     *     returns cliente.modificarZonaLector.StringArray
-     */
-    @WebMethod
-    @WebResult(partName = "return")
-    @Action(input = "http://publicadores/ModificarZonaLectorPublish/listarNombresLectoresRequest", output = "http://publicadores/ModificarZonaLectorPublish/listarNombresLectoresResponse")
-    public StringArray listarNombresLectores();
 
 }
