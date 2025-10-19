@@ -25,6 +25,11 @@
                         Alta Donación de Libro
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link btn btn-outline-success mb-2" href="altaDonacionEspecial.jsp">
+                        Alta Donación Especial
+                    </a>
+                </li>
             </ul>
         </div>
 
