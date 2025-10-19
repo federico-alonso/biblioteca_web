@@ -98,6 +98,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link DtMaterialConPrestamo }
+     * 
+     */
+    public DtMaterialConPrestamo createDtMaterialConPrestamo() {
+        return new DtMaterialConPrestamo();
+    }
+
+    /**
      * Create an instance of {@link DtPrestamoArray }
      * 
      */
@@ -111,6 +119,14 @@ public class ObjectFactory {
      */
     public DtPrestamoSimpleArray createDtPrestamoSimpleArray() {
         return new DtPrestamoSimpleArray();
+    }
+
+    /**
+     * Create an instance of {@link DtMaterialConPrestamoArray }
+     * 
+     */
+    public DtMaterialConPrestamoArray createDtMaterialConPrestamoArray() {
+        return new DtMaterialConPrestamoArray();
     }
 
     /**

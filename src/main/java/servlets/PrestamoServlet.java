@@ -11,6 +11,8 @@ import cliente.prestamo.PrestamoPublishService;
 import cliente.prestamo.DtPrestamo;
 import cliente.prestamo.DtMaterial;
 import cliente.prestamo.DtMaterialArray;
+import cliente.prestamo.DtMaterialConPrestamo;
+import cliente.prestamo.DtMaterialConPrestamoArray;
 import cliente.prestamo.DtLector;
 import cliente.prestamo.EstadoPmo;
 import cliente.prestamo.PrestamoYaExisteExcepcion_Exception;
@@ -37,13 +39,32 @@ public class PrestamoServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
+        String accion = request.getParameter("accion");
+
+        if ("verMisPrestamos".equals(accion)) {
+            String nombreLector = request.getParameter("nombreLector");
+        
+            DtLector lector = new DtLector();
+            lector.setNombre(nombreLector);
+        
+            DtMaterialConPrestamoArray respuesta = prestamoService.getMaterialesConPrestamo(lector);
+            List<DtMaterialConPrestamo> materiales = respuesta.getItem();
+        
+            request.setAttribute("materialesConPrestamo", materiales);
+            request.setAttribute("nombreLector", nombreLector);
+            request.getRequestDispatcher("verPrestamos.jsp").forward(request, response);
+            return;
+        }
+        
+        
+
+        // Acción por defecto: registrar préstamo
         String nombreLector = request.getParameter("nombreLector");
         String idMaterialStr = request.getParameter("idMaterial");
 
         try {
             Long idMaterial = Long.parseLong(idMaterialStr);
 
-            // Buscar el material por ID
             DtMaterialArray materiales = prestamoService.getListadoMateriales();
             DtMaterial materialSeleccionado = null;
             for (DtMaterial mat : materiales.getItem()) {
@@ -62,22 +83,18 @@ public class PrestamoServlet extends HttpServlet {
                 return;
             }
 
-            // Construir el lector
             DtLector lector = new DtLector();
             lector.setNombre(nombreLector);
 
-            // Fecha actual
             GregorianCalendar gc = new GregorianCalendar();
             XMLGregorianCalendar fechaSolicitud = DatatypeFactory.newInstance().newXMLGregorianCalendar(gc);
 
-            // Construir el préstamo
             DtPrestamo prestamo = new DtPrestamo();
             prestamo.setMaterial(materialSeleccionado);
             prestamo.setLector(lector);
             prestamo.setFechaSolicitud(fechaSolicitud);
-            prestamo.setEstado(EstadoPmo.PENDIENTE);
+            prestamo.setEstado(EstadoPmo.EN_CURSO);
 
-            // Registrar el préstamo
             prestamoService.altaPrestamo(prestamo);
 
             DtMaterialArray recarga = prestamoService.getListadoMateriales();

@@ -27,6 +27,15 @@
                         </button>
                     </form>
                 </li>
+                <li class="nav-item">
+                    <form action="RegistrarPrestamoServlet" method="post">
+                        <input type="hidden" name="accion" value="verMisPrestamos" />
+                        <input type="hidden" name="nombreLector" value="<%= nombreLector %>" />
+                        <button type="submit" class="nav-link btn btn-outline-primary mb-2">
+                            Ver mis préstamos
+                        </button>
+                    </form>
+                </li>
             </ul>
         </div>
 

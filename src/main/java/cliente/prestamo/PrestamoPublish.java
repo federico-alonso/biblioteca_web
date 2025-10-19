@@ -27,16 +27,13 @@ public interface PrestamoPublish {
 
     /**
      * 
-     * @param arg0
      * @return
-     *     returns cliente.prestamo.DtPrestamoSimpleArray
+     *     returns cliente.prestamo.AnyTypeArray
      */
     @WebMethod
     @WebResult(partName = "return")
-    @Action(input = "http://publicadores/PrestamoPublish/getPrestamosActivosPorLectorRequest", output = "http://publicadores/PrestamoPublish/getPrestamosActivosPorLectorResponse")
-    public DtPrestamoSimpleArray getPrestamosActivosPorLector(
-        @WebParam(name = "arg0", partName = "arg0")
-        DtLector arg0);
+    @Action(input = "http://publicadores/PrestamoPublish/consultarPrestamosComunesRequest", output = "http://publicadores/PrestamoPublish/consultarPrestamosComunesResponse")
+    public AnyTypeArray consultarPrestamosComunes();
 
     /**
      * 
@@ -53,13 +50,26 @@ public interface PrestamoPublish {
 
     /**
      * 
+     * @param arg0
      * @return
-     *     returns cliente.prestamo.AnyTypeArray
+     *     returns cliente.prestamo.DtPrestamoSimpleArray
      */
     @WebMethod
     @WebResult(partName = "return")
-    @Action(input = "http://publicadores/PrestamoPublish/consultarPrestamosComunesRequest", output = "http://publicadores/PrestamoPublish/consultarPrestamosComunesResponse")
-    public AnyTypeArray consultarPrestamosComunes();
+    @Action(input = "http://publicadores/PrestamoPublish/getPrestamosActivosPorLectorRequest", output = "http://publicadores/PrestamoPublish/getPrestamosActivosPorLectorResponse")
+    public DtPrestamoSimpleArray getPrestamosActivosPorLector(
+        @WebParam(name = "arg0", partName = "arg0")
+        DtLector arg0);
+
+    /**
+     * 
+     * @return
+     *     returns cliente.prestamo.DtBibliotecarioArray
+     */
+    @WebMethod
+    @WebResult(partName = "return")
+    @Action(input = "http://publicadores/PrestamoPublish/getListadoBibliotecariosRequest", output = "http://publicadores/PrestamoPublish/getListadoBibliotecariosResponse")
+    public DtBibliotecarioArray getListadoBibliotecarios();
 
     /**
      * 
@@ -74,12 +84,12 @@ public interface PrestamoPublish {
     /**
      * 
      * @return
-     *     returns cliente.prestamo.DtBibliotecarioArray
+     *     returns cliente.prestamo.DtLectorArray
      */
     @WebMethod
     @WebResult(partName = "return")
-    @Action(input = "http://publicadores/PrestamoPublish/getListadoBibliotecariosRequest", output = "http://publicadores/PrestamoPublish/getListadoBibliotecariosResponse")
-    public DtBibliotecarioArray getListadoBibliotecarios();
+    @Action(input = "http://publicadores/PrestamoPublish/getListadoLectoresRequest", output = "http://publicadores/PrestamoPublish/getListadoLectoresResponse")
+    public DtLectorArray getListadoLectores();
 
     /**
      * 
@@ -99,21 +109,24 @@ public interface PrestamoPublish {
     /**
      * 
      * @return
-     *     returns cliente.prestamo.DtLectorArray
-     */
-    @WebMethod
-    @WebResult(partName = "return")
-    @Action(input = "http://publicadores/PrestamoPublish/getListadoLectoresRequest", output = "http://publicadores/PrestamoPublish/getListadoLectoresResponse")
-    public DtLectorArray getListadoLectores();
-
-    /**
-     * 
-     * @return
      *     returns cliente.prestamo.StringArray
      */
     @WebMethod
     @WebResult(partName = "return")
     @Action(input = "http://publicadores/PrestamoPublish/getNombresLectoresRequest", output = "http://publicadores/PrestamoPublish/getNombresLectoresResponse")
     public StringArray getNombresLectores();
+
+    /**
+     * 
+     * @param arg0
+     * @return
+     *     returns cliente.prestamo.DtMaterialConPrestamoArray
+     */
+    @WebMethod
+    @WebResult(partName = "return")
+    @Action(input = "http://publicadores/PrestamoPublish/getMaterialesConPrestamoRequest", output = "http://publicadores/PrestamoPublish/getMaterialesConPrestamoResponse")
+    public DtMaterialConPrestamoArray getMaterialesConPrestamo(
+        @WebParam(name = "arg0", partName = "arg0")
+        DtLector arg0);
 
 }
