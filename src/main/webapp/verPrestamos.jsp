@@ -1,8 +1,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="java.util.*, cliente.prestamo.*" %>
 <%
-    String nombreLector = (String) request.getAttribute("nombreLector");
-    List<DtMaterialConPrestamo> materiales = (List<DtMaterialConPrestamo>) request.getAttribute("materialesConPrestamo");
+    String nombreLector = (String) request.getSession().getAttribute("nombreLector");
+    List<DtMaterialConPrestamo> materiales = (List<DtMaterialConPrestamo>) request.getSession().getAttribute("materialesConPrestamo");
 %>
 <!DOCTYPE html>
 <html lang="es">

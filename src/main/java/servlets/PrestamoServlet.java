@@ -1,21 +1,11 @@
 package servlets;
 
+import cliente.prestamo.*;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-
-import cliente.prestamo.PrestamoPublish;
-import cliente.prestamo.PrestamoPublishService;
-import cliente.prestamo.DtPrestamo;
-import cliente.prestamo.DtMaterial;
-import cliente.prestamo.DtMaterialArray;
-import cliente.prestamo.DtMaterialConPrestamo;
-import cliente.prestamo.DtMaterialConPrestamoArray;
-import cliente.prestamo.DtLector;
-import cliente.prestamo.EstadoPmo;
-import cliente.prestamo.PrestamoYaExisteExcepcion_Exception;
 
 import javax.xml.datatype.DatatypeFactory;
 import javax.xml.datatype.XMLGregorianCalendar;
@@ -42,7 +32,7 @@ public class PrestamoServlet extends HttpServlet {
         String accion = request.getParameter("accion");
 
         if ("verMisPrestamos".equals(accion)) {
-            String nombreLector = request.getParameter("nombreLector");
+            String nombreLector = (String) request.getSession().getAttribute("nombreLector");
         
             DtLector lector = new DtLector();
             lector.setNombre(nombreLector);
@@ -50,16 +40,14 @@ public class PrestamoServlet extends HttpServlet {
             DtMaterialConPrestamoArray respuesta = prestamoService.getMaterialesConPrestamo(lector);
             List<DtMaterialConPrestamo> materiales = respuesta.getItem();
         
-            request.setAttribute("materialesConPrestamo", materiales);
-            request.setAttribute("nombreLector", nombreLector);
+            request.getSession().setAttribute("materialesConPrestamo", materiales);
+         // request.getSession().setAttribute("nombreLector", nombreLector);
             request.getRequestDispatcher("verPrestamos.jsp").forward(request, response);
             return;
         }
-        
-        
 
         // Acción por defecto: registrar préstamo
-        String nombreLector = request.getParameter("nombreLector");
+        String nombreLector = (String) request.getSession().getAttribute("nombreLector");
         String idMaterialStr = request.getParameter("idMaterial");
 
         try {
@@ -117,4 +105,6 @@ public class PrestamoServlet extends HttpServlet {
             request.getRequestDispatcher("donaciones.jsp").forward(request, response);
         }
     }
+
 }
+

@@ -43,6 +43,11 @@
                         Consultar Donaciones
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link btn btn-outline-info mb-2" href="historialPrestamosBibliotecario.jsp">
+                        Historial Prestamos Bibliotecario
+                    </a>
+                </li>
             </ul>
 
             <hr>
