@@ -25,6 +25,15 @@
 <div class="container mt-4 mb-5">
     <h1 class="text-center mb-4">Catálogo de la Biblioteca</h1>
 
+    <!-- Botón Volver -->
+    <div class="text-center mb-4">
+        <%
+            String tipoUsuario = (String) session.getAttribute("tipoUsuario");
+            String menuDestino = "lector".equals(tipoUsuario) ? "menuLector.jsp" : "menuBibliotecario.jsp";
+        %>
+        <a href="<%= menuDestino %>" class="btn btn-secondary">Volver al menú</a>
+    </div>
+
     <% if (mensaje != null) { %>
         <div class="alert alert-info text-center"><%= mensaje %></div>
     <% } %>

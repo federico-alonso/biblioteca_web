@@ -1,7 +1,7 @@
-<%@ page import="cliente.consultarDonacionPorFecha.DtMaterial" %>
+<%@ page import="cliente.consultaDonacionYFecha.DtMaterial" %>
 <%@ page import="java.util.List" %>
-<%@ page import="cliente.consultarDonacionPorFecha.DtLibro" %>
-<%@ page import="cliente.consultarDonacionPorFecha.DtArticuloEspecial" %>
+<%@ page import="cliente.consultaDonacionYFecha.DtLibro" %>
+<%@ page import="cliente.consultaDonacionYFecha.DtArticuloEspecial" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="es">
@@ -108,7 +108,11 @@
             </div>
             <div class="d-flex justify-content-between flex-wrap">
                 <small class="text-white-50">* Ambas fechas son obligatorias</small>
-                <a href="menuBibliotecario.jsp" class="btn btn-light btn-sm">
+                <%
+                    String tipoUsuario = (String) session.getAttribute("tipoUsuario");
+                    String menuDestino = "lector".equals(tipoUsuario) ? "menuLector.jsp" : "menuBibliotecario.jsp";
+                %>
+                <a href="<%= menuDestino %>" class="btn btn-light btn-sm">
                     <i class="fas fa-arrow-left"></i> Volver al Menú
                 </a>
             </div>

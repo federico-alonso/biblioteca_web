@@ -49,6 +49,13 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <form action="ModificarTodoPrestamoServlet" method="get">
+                        <button type="submit" class="nav-link btn btn-outline-primary mb-2">
+                            Modificar Préstamos
+                        </button>
+                    </form>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link btn btn-outline-primary mb-2" href="ListarPrestamosLectorServlet">
                         Préstamos por Lector
                     </a>
@@ -60,6 +67,21 @@
                         </button>
                     </form>
                 </li>
+                <li class="nav-item">
+                    <form action="MaterialesPopularesServlet" method="post">
+                        <button type="submit" class="nav-link btn btn-outline-warning mb-2">
+                            Materiales Populares
+                        </button>
+                    </form>
+                </li>
+                <li class="nav-item">
+                    <form action="ReportePrestamosZonaServlet" method="post">
+                        <button type="submit" class="nav-link btn btn-outline-dark mb-2">
+                            Reporte Préstamos por Zona
+                        </button>
+                    </form>
+                </li>
+
             </ul>
 
             <hr>

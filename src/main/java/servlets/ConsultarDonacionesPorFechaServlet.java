@@ -1,9 +1,9 @@
 package servlets;
 
-import cliente.consultarDonacionPorFecha.ConsultaDonacionYFechaPublish;
-import cliente.consultarDonacionPorFecha.ConsultaDonacionYFechaPublishService;
-import cliente.consultarDonacionPorFecha.DtMaterial;
-import cliente.consultarDonacionPorFecha.DtMaterialArray;
+import cliente.consultaDonacionYFecha.ConsultaDonacionYFechaPublish;
+import cliente.consultaDonacionYFecha.ConsultaDonacionYFechaPublishService;
+import cliente.consultaDonacionYFecha.DtMaterial;
+import cliente.consultaDonacionYFecha.DtMaterialArray;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;

@@ -33,7 +33,7 @@
       <p>¿No tenés cuenta?</p>
       <div class="d-flex justify-content-center">
         <a href="registroUsuario.jsp" class="btn btn-secondary mr-2">Registrarse como Lector</a>
-        <a href="registroBibliotecario.jsp" class="btn btn-secondary">Registrarse como Bibliotecario</a>
+       <!-- <a href="registroBibliotecario.jsp" class="btn btn-secondary">Registrarse como Bibliotecario</a>-->
       </div>
     </div>
 

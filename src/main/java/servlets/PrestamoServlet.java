@@ -34,10 +34,23 @@ public class PrestamoServlet extends HttpServlet {
         if ("verMisPrestamos".equals(accion)) {
             String nombreLector = (String) request.getSession().getAttribute("nombreLector");
         
-            DtLector lector = new DtLector();
-            lector.setNombre(nombreLector);
+            // Obtener información completa del lector desde la base de datos
+            DtLectorArray lectores = prestamoService.getListadoLectores();
+            DtLector lectorCompleto = null;
+            for (DtLector l : lectores.getItem()) {
+                if (l.getNombre().equals(nombreLector)) {
+                    lectorCompleto = l;
+                    break;
+                }
+            }
+            
+            if (lectorCompleto == null) {
+                request.setAttribute("error", "Lector no encontrado.");
+                request.getRequestDispatcher("verPrestamos.jsp").forward(request, response);
+                return;
+            }
         
-            DtMaterialConPrestamoArray respuesta = prestamoService.getMaterialesConPrestamo(lector);
+            DtMaterialConPrestamoArray respuesta = prestamoService.getMaterialesConPrestamo(lectorCompleto);
             List<DtMaterialConPrestamo> materiales = respuesta.getItem();
         
             request.getSession().setAttribute("materialesConPrestamo", materiales);
@@ -73,13 +86,50 @@ public class PrestamoServlet extends HttpServlet {
 
             DtLector lector = new DtLector();
             lector.setNombre(nombreLector);
+            
+            // Obtener información completa del lector desde la base de datos
+            DtLectorArray lectores = prestamoService.getListadoLectores();
+            DtLector lectorCompleto = null;
+            for (DtLector l : lectores.getItem()) {
+                if (l.getNombre().equals(nombreLector)) {
+                    lectorCompleto = l;
+                    break;
+                }
+            }
+            
+            if (lectorCompleto == null) {
+                DtMaterialArray recarga = prestamoService.getListadoMateriales();
+                request.setAttribute("donaciones", recarga.getItem());
+                request.setAttribute("nombreLector", nombreLector);
+                request.setAttribute("mensaje", "Lector no encontrado.");
+                request.getRequestDispatcher("donaciones.jsp").forward(request, response);
+                return;
+            }
 
             GregorianCalendar gc = new GregorianCalendar();
             XMLGregorianCalendar fechaSolicitud = DatatypeFactory.newInstance().newXMLGregorianCalendar(gc);
 
+            // Obtener un bibliotecario para asociar al préstamo
+            DtBibliotecarioArray bibliotecarios = prestamoService.getListadoBibliotecarios();
+            DtBibliotecario bibliotecario = null;
+            if (bibliotecarios.getItem() != null && !bibliotecarios.getItem().isEmpty()) {
+                // Asignación balanceada: rotar entre bibliotecarios disponibles
+                java.util.Random random = new java.util.Random();
+                int index = random.nextInt(bibliotecarios.getItem().size());
+                bibliotecario = bibliotecarios.getItem().get(index);
+            } else {
+                DtMaterialArray recarga = prestamoService.getListadoMateriales();
+                request.setAttribute("donaciones", recarga.getItem());
+                request.setAttribute("nombreLector", nombreLector);
+                request.setAttribute("mensaje", "No hay bibliotecarios disponibles para procesar el préstamo.");
+                request.getRequestDispatcher("donaciones.jsp").forward(request, response);
+                return;
+            }
+
             DtPrestamo prestamo = new DtPrestamo();
             prestamo.setMaterial(materialSeleccionado);
-            prestamo.setLector(lector);
+            prestamo.setLector(lectorCompleto); // Usar el lector completo con zona
+            prestamo.setBibliotecario(bibliotecario); // Asociar bibliotecario
             prestamo.setFechaSolicitud(fechaSolicitud);
             prestamo.setEstado(EstadoPmo.EN_CURSO);
 
@@ -88,7 +138,11 @@ public class PrestamoServlet extends HttpServlet {
             DtMaterialArray recarga = prestamoService.getListadoMateriales();
             request.setAttribute("donaciones", recarga.getItem());
             request.setAttribute("nombreLector", nombreLector);
-            request.setAttribute("mensaje", "Préstamo registrado correctamente.");
+            String mensajeExito = "Préstamo registrado correctamente.";
+            if (bibliotecario != null) {
+                mensajeExito += " Procesado por: " + bibliotecario.getNombre();
+            }
+            request.setAttribute("mensaje", mensajeExito);
             request.getRequestDispatcher("donaciones.jsp").forward(request, response);
 
         } catch (PrestamoYaExisteExcepcion_Exception e) {

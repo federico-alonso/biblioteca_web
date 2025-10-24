@@ -44,6 +44,11 @@
                         </button>
                     </form>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link btn btn-outline-info mb-2" href="consultarDonaciones.jsp">
+                        Consultar Donaciones
+                    </a>
+                </li>
             </ul>
         </div>
 
