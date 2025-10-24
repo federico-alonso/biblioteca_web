@@ -27,21 +27,13 @@ public interface ModificarEstadoLectorPublish {
 
     /**
      * 
-     * @param arg0
      * @return
-     *     returns cliente.modificarEstadoLector.EstadoLector
-     * @throws LectorNoExisteExcepcion_Exception
+     *     returns cliente.modificarEstadoLector.StringArray
      */
     @WebMethod
     @WebResult(partName = "return")
-    @Action(input = "http://publicadores/ModificarEstadoLectorPublish/getEstadoLectorRequest", output = "http://publicadores/ModificarEstadoLectorPublish/getEstadoLectorResponse", fault = {
-        @FaultAction(className = LectorNoExisteExcepcion_Exception.class, value = "http://publicadores/ModificarEstadoLectorPublish/getEstadoLector/Fault/LectorNoExisteExcepcion")
-    })
-    public EstadoLector getEstadoLector(
-        @WebParam(name = "arg0", partName = "arg0")
-        String arg0)
-        throws LectorNoExisteExcepcion_Exception
-    ;
+    @Action(input = "http://publicadores/ModificarEstadoLectorPublish/listarNombresLectoresRequest", output = "http://publicadores/ModificarEstadoLectorPublish/listarNombresLectoresResponse")
+    public StringArray listarNombresLectores();
 
     /**
      * 
@@ -63,13 +55,21 @@ public interface ModificarEstadoLectorPublish {
 
     /**
      * 
+     * @param arg0
      * @return
-     *     returns cliente.modificarEstadoLector.StringArray
+     *     returns cliente.modificarEstadoLector.EstadoLector
+     * @throws LectorNoExisteExcepcion_Exception
      */
     @WebMethod
     @WebResult(partName = "return")
-    @Action(input = "http://publicadores/ModificarEstadoLectorPublish/listarNombresLectoresRequest", output = "http://publicadores/ModificarEstadoLectorPublish/listarNombresLectoresResponse")
-    public StringArray listarNombresLectores();
+    @Action(input = "http://publicadores/ModificarEstadoLectorPublish/getEstadoLectorRequest", output = "http://publicadores/ModificarEstadoLectorPublish/getEstadoLectorResponse", fault = {
+        @FaultAction(className = LectorNoExisteExcepcion_Exception.class, value = "http://publicadores/ModificarEstadoLectorPublish/getEstadoLector/Fault/LectorNoExisteExcepcion")
+    })
+    public EstadoLector getEstadoLector(
+        @WebParam(name = "arg0", partName = "arg0")
+        String arg0)
+        throws LectorNoExisteExcepcion_Exception
+    ;
 
     /**
      * 

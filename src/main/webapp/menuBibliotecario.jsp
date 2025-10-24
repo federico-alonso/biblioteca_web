@@ -53,6 +53,13 @@
                         Préstamos por Lector
                     </a>
                 </li>
+                <li class="nav-item">
+                    <form action="HistorialPrestamosBibliotecarioServlet" method="post">
+                        <button type="submit" class="nav-link btn btn-outline-info mb-2">
+                            Historial Préstamos Bibliotecario
+                        </button>
+                    </form>
+                </li>
             </ul>
 
             <hr>

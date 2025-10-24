@@ -27,16 +27,13 @@ public interface PrestamoPublish {
 
     /**
      * 
-     * @param arg0
      * @return
-     *     returns cliente.prestamo.DtPrestamoSimpleArray
+     *     returns cliente.prestamo.AnyTypeArray
      */
     @WebMethod
     @WebResult(partName = "return")
-    @Action(input = "http://publicadores/PrestamoPublish/getPrestamosActivosPorLectorRequest", output = "http://publicadores/PrestamoPublish/getPrestamosActivosPorLectorResponse")
-    public DtPrestamoSimpleArray getPrestamosActivosPorLector(
-        @WebParam(name = "arg0", partName = "arg0")
-        DtLector arg0);
+    @Action(input = "http://publicadores/PrestamoPublish/consultarPrestamosComunesRequest", output = "http://publicadores/PrestamoPublish/consultarPrestamosComunesResponse")
+    public AnyTypeArray consultarPrestamosComunes();
 
     /**
      * 
@@ -53,6 +50,19 @@ public interface PrestamoPublish {
 
     /**
      * 
+     * @param arg0
+     * @return
+     *     returns cliente.prestamo.DtPrestamoSimpleArray
+     */
+    @WebMethod
+    @WebResult(partName = "return")
+    @Action(input = "http://publicadores/PrestamoPublish/getPrestamosActivosPorLectorRequest", output = "http://publicadores/PrestamoPublish/getPrestamosActivosPorLectorResponse")
+    public DtPrestamoSimpleArray getPrestamosActivosPorLector(
+        @WebParam(name = "arg0", partName = "arg0")
+        DtLector arg0);
+
+    /**
+     * 
      * @return
      *     returns cliente.prestamo.DtMaterialArray
      */
@@ -60,21 +70,6 @@ public interface PrestamoPublish {
     @WebResult(partName = "return")
     @Action(input = "http://publicadores/PrestamoPublish/getListadoMaterialesRequest", output = "http://publicadores/PrestamoPublish/getListadoMaterialesResponse")
     public DtMaterialArray getListadoMateriales();
-
-    /**
-     * 
-     * @param arg0
-     * @throws PrestamoYaExisteExcepcion_Exception
-     */
-    @WebMethod
-    @Action(input = "http://publicadores/PrestamoPublish/altaPrestamoRequest", output = "http://publicadores/PrestamoPublish/altaPrestamoResponse", fault = {
-        @FaultAction(className = PrestamoYaExisteExcepcion_Exception.class, value = "http://publicadores/PrestamoPublish/altaPrestamo/Fault/PrestamoYaExisteExcepcion")
-    })
-    public void altaPrestamo(
-        @WebParam(name = "arg0", partName = "arg0")
-        DtPrestamo arg0)
-        throws PrestamoYaExisteExcepcion_Exception
-    ;
 
     /**
      * 
@@ -98,6 +93,21 @@ public interface PrestamoPublish {
 
     /**
      * 
+     * @param arg0
+     * @throws PrestamoYaExisteExcepcion_Exception
+     */
+    @WebMethod
+    @Action(input = "http://publicadores/PrestamoPublish/altaPrestamoRequest", output = "http://publicadores/PrestamoPublish/altaPrestamoResponse", fault = {
+        @FaultAction(className = PrestamoYaExisteExcepcion_Exception.class, value = "http://publicadores/PrestamoPublish/altaPrestamo/Fault/PrestamoYaExisteExcepcion")
+    })
+    public void altaPrestamo(
+        @WebParam(name = "arg0", partName = "arg0")
+        DtPrestamo arg0)
+        throws PrestamoYaExisteExcepcion_Exception
+    ;
+
+    /**
+     * 
      * @return
      *     returns cliente.prestamo.StringArray
      */
@@ -105,16 +115,6 @@ public interface PrestamoPublish {
     @WebResult(partName = "return")
     @Action(input = "http://publicadores/PrestamoPublish/getNombresLectoresRequest", output = "http://publicadores/PrestamoPublish/getNombresLectoresResponse")
     public StringArray getNombresLectores();
-
-    /**
-     * 
-     * @return
-     *     returns cliente.prestamo.AnyTypeArray
-     */
-    @WebMethod
-    @WebResult(partName = "return")
-    @Action(input = "http://publicadores/PrestamoPublish/consultarPrestamosComunesRequest", output = "http://publicadores/PrestamoPublish/consultarPrestamosComunesResponse")
-    public AnyTypeArray consultarPrestamosComunes();
 
     /**
      * 
