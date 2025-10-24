@@ -44,8 +44,13 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link btn btn-outline-info mb-2" href="historialPrestamosBibliotecario.jsp">
-                        Historial Prestamos Bibliotecario
+                    <a class="nav-link btn btn-outline-warning mb-2" href="consultarDonacionesPorFecha.jsp">
+                        Consultar Donaciones por Fecha
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn btn-outline-primary mb-2" href="ListarPrestamosLectorServlet">
+                        Préstamos por Lector
                     </a>
                 </li>
             </ul>

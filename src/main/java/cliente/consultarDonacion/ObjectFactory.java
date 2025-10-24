@@ -1,7 +1,7 @@
 
 package cliente.consultarDonacion;
 
-import jakarta.xml.bind.annotation.XmlRegistry;
+import javax.xml.bind.annotation.XmlRegistry;
 
 
 /**
@@ -30,14 +30,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link DtMaterial }
-     * 
-     */
-    public DtMaterial createDtMaterial() {
-        return new DtMaterial();
-    }
-
-    /**
      * Create an instance of {@link DtLibro }
      * 
      */
@@ -51,6 +43,14 @@ public class ObjectFactory {
      */
     public DtArticuloEspecial createDtArticuloEspecial() {
         return new DtArticuloEspecial();
+    }
+
+    /**
+     * Create an instance of {@link DtMaterial }
+     * 
+     */
+    public DtMaterial createDtMaterial() {
+        return new DtMaterial();
     }
 
     /**

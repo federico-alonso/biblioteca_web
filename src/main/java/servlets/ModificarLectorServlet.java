@@ -23,9 +23,7 @@ public class ModificarLectorServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-
-        String correo = request.getParameter("correoLector");
+            throws ServletException, IOException {        String correo = request.getParameter("correoLector");
         String nuevoEstadoStr = request.getParameter("nuevoEstado");
         String nuevaZonaStr = request.getParameter("nuevaZona");
 
