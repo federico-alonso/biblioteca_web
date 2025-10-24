@@ -1,7 +1,7 @@
 
 package cliente.modificarEstadoPrestamo;
 
-import jakarta.xml.bind.annotation.XmlRegistry;
+import javax.xml.bind.annotation.XmlRegistry;
 
 
 /**
@@ -30,19 +30,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link DtPrestamo }
+     * Create an instance of {@link DtBibliotecario }
      * 
      */
-    public DtPrestamo createDtPrestamo() {
-        return new DtPrestamo();
-    }
-
-    /**
-     * Create an instance of {@link DtMaterial }
-     * 
-     */
-    public DtMaterial createDtMaterial() {
-        return new DtMaterial();
+    public DtBibliotecario createDtBibliotecario() {
+        return new DtBibliotecario();
     }
 
     /**
@@ -54,6 +46,22 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link DtPrestamoArray }
+     * 
+     */
+    public DtPrestamoArray createDtPrestamoArray() {
+        return new DtPrestamoArray();
+    }
+
+    /**
+     * Create an instance of {@link DtPrestamo }
+     * 
+     */
+    public DtPrestamo createDtPrestamo() {
+        return new DtPrestamo();
+    }
+
+    /**
      * Create an instance of {@link DtArticuloEspecial }
      * 
      */
@@ -62,27 +70,19 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link DtMaterial }
+     * 
+     */
+    public DtMaterial createDtMaterial() {
+        return new DtMaterial();
+    }
+
+    /**
      * Create an instance of {@link DtLector }
      * 
      */
     public DtLector createDtLector() {
         return new DtLector();
-    }
-
-    /**
-     * Create an instance of {@link DtBibliotecario }
-     * 
-     */
-    public DtBibliotecario createDtBibliotecario() {
-        return new DtBibliotecario();
-    }
-
-    /**
-     * Create an instance of {@link DtPrestamoArray }
-     * 
-     */
-    public DtPrestamoArray createDtPrestamoArray() {
-        return new DtPrestamoArray();
     }
 
 }

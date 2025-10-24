@@ -1,10 +1,10 @@
 
 package cliente.altaDonacionEspecial;
 
+import javax.xml.bind.JAXBElement;
+import javax.xml.bind.annotation.XmlElementDecl;
+import javax.xml.bind.annotation.XmlRegistry;
 import javax.xml.namespace.QName;
-import jakarta.xml.bind.JAXBElement;
-import jakarta.xml.bind.annotation.XmlElementDecl;
-import jakarta.xml.bind.annotation.XmlRegistry;
 
 
 /**
@@ -42,6 +42,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link DtLibro }
+     * 
+     */
+    public DtLibro createDtLibro() {
+        return new DtLibro();
+    }
+
+    /**
      * Create an instance of {@link DtArticuloEspecial }
      * 
      */
@@ -58,20 +66,8 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link DtLibro }
+     * Create an instance of {@link JAXBElement }{@code <}{@link Exception }{@code >}}
      * 
-     */
-    public DtLibro createDtLibro() {
-        return new DtLibro();
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Exception }{@code >}
-     * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link Exception }{@code >}
      */
     @XmlElementDecl(namespace = "http://publicadores/", name = "Exception")
     public JAXBElement<Exception> createException(Exception value) {
