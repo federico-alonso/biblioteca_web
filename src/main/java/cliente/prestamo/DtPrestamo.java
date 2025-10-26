@@ -1,34 +1,34 @@
 
 package cliente.prestamo;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlSchemaType;
+import javax.xml.bind.annotation.XmlType;
 import javax.xml.datatype.XMLGregorianCalendar;
-import jakarta.xml.bind.annotation.XmlAccessType;
-import jakarta.xml.bind.annotation.XmlAccessorType;
-import jakarta.xml.bind.annotation.XmlSchemaType;
-import jakarta.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for dtPrestamo complex type.
+ * <p>Clase Java para dtPrestamo complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
  * 
  * <pre>
- * &lt;complexType name="dtPrestamo"&gt;
- *   &lt;complexContent&gt;
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
- *       &lt;sequence&gt;
- *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}long"/&gt;
- *         &lt;element name="material" type="{http://publicadores/}dtMaterial" minOccurs="0"/&gt;
- *         &lt;element name="lector" type="{http://publicadores/}dtLector" minOccurs="0"/&gt;
- *         &lt;element name="bibliotecario" type="{http://publicadores/}dtBibliotecario" minOccurs="0"/&gt;
- *         &lt;element name="fechaSolicitud" type="{http://www.w3.org/2001/XMLSchema}dateTime" minOccurs="0"/&gt;
- *         &lt;element name="fechaDevolucion" type="{http://www.w3.org/2001/XMLSchema}dateTime" minOccurs="0"/&gt;
- *         &lt;element name="estado" type="{http://publicadores/}estadoPmo" minOccurs="0"/&gt;
- *       &lt;/sequence&gt;
- *     &lt;/restriction&gt;
- *   &lt;/complexContent&gt;
- * &lt;/complexType&gt;
+ * &lt;complexType name="dtPrestamo">
+ *   &lt;complexContent>
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *       &lt;sequence>
+ *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}long"/>
+ *         &lt;element name="material" type="{http://publicadores/}dtMaterial" minOccurs="0"/>
+ *         &lt;element name="lector" type="{http://publicadores/}dtLector" minOccurs="0"/>
+ *         &lt;element name="bibliotecario" type="{http://publicadores/}dtBibliotecario" minOccurs="0"/>
+ *         &lt;element name="fechaSolicitud" type="{http://www.w3.org/2001/XMLSchema}dateTime" minOccurs="0"/>
+ *         &lt;element name="fechaDevolucion" type="{http://www.w3.org/2001/XMLSchema}dateTime" minOccurs="0"/>
+ *         &lt;element name="estado" type="{http://publicadores/}estadoPmo" minOccurs="0"/>
+ *       &lt;/sequence>
+ *     &lt;/restriction>
+ *   &lt;/complexContent>
+ * &lt;/complexType>
  * </pre>
  * 
  * 
@@ -57,7 +57,7 @@ public class DtPrestamo {
     protected EstadoPmo estado;
 
     /**
-     * Gets the value of the id property.
+     * Obtiene el valor de la propiedad id.
      * 
      */
     public long getId() {
@@ -65,7 +65,7 @@ public class DtPrestamo {
     }
 
     /**
-     * Sets the value of the id property.
+     * Define el valor de la propiedad id.
      * 
      */
     public void setId(long value) {
@@ -73,7 +73,7 @@ public class DtPrestamo {
     }
 
     /**
-     * Gets the value of the material property.
+     * Obtiene el valor de la propiedad material.
      * 
      * @return
      *     possible object is
@@ -85,7 +85,7 @@ public class DtPrestamo {
     }
 
     /**
-     * Sets the value of the material property.
+     * Define el valor de la propiedad material.
      * 
      * @param value
      *     allowed object is
@@ -97,7 +97,7 @@ public class DtPrestamo {
     }
 
     /**
-     * Gets the value of the lector property.
+     * Obtiene el valor de la propiedad lector.
      * 
      * @return
      *     possible object is
@@ -109,7 +109,7 @@ public class DtPrestamo {
     }
 
     /**
-     * Sets the value of the lector property.
+     * Define el valor de la propiedad lector.
      * 
      * @param value
      *     allowed object is
@@ -121,7 +121,7 @@ public class DtPrestamo {
     }
 
     /**
-     * Gets the value of the bibliotecario property.
+     * Obtiene el valor de la propiedad bibliotecario.
      * 
      * @return
      *     possible object is
@@ -133,7 +133,7 @@ public class DtPrestamo {
     }
 
     /**
-     * Sets the value of the bibliotecario property.
+     * Define el valor de la propiedad bibliotecario.
      * 
      * @param value
      *     allowed object is
@@ -145,7 +145,7 @@ public class DtPrestamo {
     }
 
     /**
-     * Gets the value of the fechaSolicitud property.
+     * Obtiene el valor de la propiedad fechaSolicitud.
      * 
      * @return
      *     possible object is
@@ -157,7 +157,7 @@ public class DtPrestamo {
     }
 
     /**
-     * Sets the value of the fechaSolicitud property.
+     * Define el valor de la propiedad fechaSolicitud.
      * 
      * @param value
      *     allowed object is
@@ -169,7 +169,7 @@ public class DtPrestamo {
     }
 
     /**
-     * Gets the value of the fechaDevolucion property.
+     * Obtiene el valor de la propiedad fechaDevolucion.
      * 
      * @return
      *     possible object is
@@ -181,7 +181,7 @@ public class DtPrestamo {
     }
 
     /**
-     * Sets the value of the fechaDevolucion property.
+     * Define el valor de la propiedad fechaDevolucion.
      * 
      * @param value
      *     allowed object is
@@ -193,7 +193,7 @@ public class DtPrestamo {
     }
 
     /**
-     * Gets the value of the estado property.
+     * Obtiene el valor de la propiedad estado.
      * 
      * @return
      *     possible object is
@@ -205,7 +205,7 @@ public class DtPrestamo {
     }
 
     /**
-     * Sets the value of the estado property.
+     * Define el valor de la propiedad estado.
      * 
      * @param value
      *     allowed object is

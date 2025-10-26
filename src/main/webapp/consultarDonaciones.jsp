@@ -19,7 +19,11 @@
 
     <form class="mb-3" method="post" action="ConsultarDonacionesServlet">
         <button type="submit" class="btn btn-primary">Cargar donaciones</button>
-        <a href="menuBibliotecario.jsp" class="btn btn-link">Volver</a>
+        <%
+            String tipoUsuario = (String) session.getAttribute("tipoUsuario");
+            String menuDestino = "lector".equals(tipoUsuario) ? "menuLector.jsp" : "menuBibliotecario.jsp";
+        %>
+        <a href="<%= menuDestino %>" class="btn btn-link">Volver</a>
     </form>
 
     <%

@@ -1,23 +1,24 @@
 
 package cliente.prestamo;
 
-import jakarta.xml.bind.annotation.XmlEnum;
-import jakarta.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.XmlEnum;
+import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for estadoPmo.
+ * <p>Clase Java para estadoPmo.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
+ * <p>
  * <pre>
- * &lt;simpleType name="estadoPmo"&gt;
- *   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
- *     &lt;enumeration value="PENDIENTE"/&gt;
- *     &lt;enumeration value="ACTIVO"/&gt;
- *     &lt;enumeration value="DEVUELTO"/&gt;
- *     &lt;enumeration value="EN_CURSO"/&gt;
- *   &lt;/restriction&gt;
- * &lt;/simpleType&gt;
+ * &lt;simpleType name="estadoPmo">
+ *   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+ *     &lt;enumeration value="PENDIENTE"/>
+ *     &lt;enumeration value="ACTIVO"/>
+ *     &lt;enumeration value="DEVUELTO"/>
+ *     &lt;enumeration value="EN_CURSO"/>
+ *   &lt;/restriction>
+ * &lt;/simpleType>
  * </pre>
  * 
  */

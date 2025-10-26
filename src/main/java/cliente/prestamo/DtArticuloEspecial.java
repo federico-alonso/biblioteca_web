@@ -1,28 +1,28 @@
 
 package cliente.prestamo;
 
-import jakarta.xml.bind.annotation.XmlAccessType;
-import jakarta.xml.bind.annotation.XmlAccessorType;
-import jakarta.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for dtArticuloEspecial complex type.
+ * <p>Clase Java para dtArticuloEspecial complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
  * 
  * <pre>
- * &lt;complexType name="dtArticuloEspecial"&gt;
- *   &lt;complexContent&gt;
- *     &lt;extension base="{http://publicadores/}dtMaterial"&gt;
- *       &lt;sequence&gt;
- *         &lt;element name="descripcion" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
- *         &lt;element name="pesoKg" type="{http://www.w3.org/2001/XMLSchema}float"/&gt;
- *         &lt;element name="dimensiones" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
- *       &lt;/sequence&gt;
- *     &lt;/extension&gt;
- *   &lt;/complexContent&gt;
- * &lt;/complexType&gt;
+ * &lt;complexType name="dtArticuloEspecial">
+ *   &lt;complexContent>
+ *     &lt;extension base="{http://publicadores/}dtMaterial">
+ *       &lt;sequence>
+ *         &lt;element name="descripcion" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="pesoKg" type="{http://www.w3.org/2001/XMLSchema}float"/>
+ *         &lt;element name="dimensiones" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *       &lt;/sequence>
+ *     &lt;/extension>
+ *   &lt;/complexContent>
+ * &lt;/complexType>
  * </pre>
  * 
  * 
@@ -42,7 +42,7 @@ public class DtArticuloEspecial
     protected String dimensiones;
 
     /**
-     * Gets the value of the descripcion property.
+     * Obtiene el valor de la propiedad descripcion.
      * 
      * @return
      *     possible object is
@@ -54,7 +54,7 @@ public class DtArticuloEspecial
     }
 
     /**
-     * Sets the value of the descripcion property.
+     * Define el valor de la propiedad descripcion.
      * 
      * @param value
      *     allowed object is
@@ -66,7 +66,7 @@ public class DtArticuloEspecial
     }
 
     /**
-     * Gets the value of the pesoKg property.
+     * Obtiene el valor de la propiedad pesoKg.
      * 
      */
     public float getPesoKg() {
@@ -74,7 +74,7 @@ public class DtArticuloEspecial
     }
 
     /**
-     * Sets the value of the pesoKg property.
+     * Define el valor de la propiedad pesoKg.
      * 
      */
     public void setPesoKg(float value) {
@@ -82,7 +82,7 @@ public class DtArticuloEspecial
     }
 
     /**
-     * Gets the value of the dimensiones property.
+     * Obtiene el valor de la propiedad dimensiones.
      * 
      * @return
      *     possible object is
@@ -94,7 +94,7 @@ public class DtArticuloEspecial
     }
 
     /**
-     * Sets the value of the dimensiones property.
+     * Define el valor de la propiedad dimensiones.
      * 
      * @param value
      *     allowed object is

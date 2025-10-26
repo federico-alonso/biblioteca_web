@@ -1,26 +1,26 @@
 
 package cliente.modificarEstadoPrestamo;
 
-import jakarta.xml.bind.annotation.XmlAccessType;
-import jakarta.xml.bind.annotation.XmlAccessorType;
-import jakarta.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for dtBibliotecario complex type.
+ * <p>Clase Java para dtBibliotecario complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
  * 
  * <pre>
- * &lt;complexType name="dtBibliotecario"&gt;
- *   &lt;complexContent&gt;
- *     &lt;extension base="{http://publicadores/}dtUsuario"&gt;
- *       &lt;sequence&gt;
- *         &lt;element name="numero" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
- *       &lt;/sequence&gt;
- *     &lt;/extension&gt;
- *   &lt;/complexContent&gt;
- * &lt;/complexType&gt;
+ * &lt;complexType name="dtBibliotecario">
+ *   &lt;complexContent>
+ *     &lt;extension base="{http://publicadores/}dtUsuario">
+ *       &lt;sequence>
+ *         &lt;element name="numero" type="{http://www.w3.org/2001/XMLSchema}int"/>
+ *       &lt;/sequence>
+ *     &lt;/extension>
+ *   &lt;/complexContent>
+ * &lt;/complexType>
  * </pre>
  * 
  * 
@@ -36,7 +36,7 @@ public class DtBibliotecario
     protected int numero;
 
     /**
-     * Gets the value of the numero property.
+     * Obtiene el valor de la propiedad numero.
      * 
      */
     public int getNumero() {
@@ -44,7 +44,7 @@ public class DtBibliotecario
     }
 
     /**
-     * Sets the value of the numero property.
+     * Define el valor de la propiedad numero.
      * 
      */
     public void setNumero(int value) {

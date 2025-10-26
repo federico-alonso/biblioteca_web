@@ -1,27 +1,27 @@
 
 package cliente.prestamo;
 
-import jakarta.xml.bind.annotation.XmlAccessType;
-import jakarta.xml.bind.annotation.XmlAccessorType;
-import jakarta.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for dtMaterialConPrestamo complex type.
+ * <p>Clase Java para dtMaterialConPrestamo complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
  * 
  * <pre>
- * &lt;complexType name="dtMaterialConPrestamo"&gt;
- *   &lt;complexContent&gt;
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
- *       &lt;sequence&gt;
- *         &lt;element name="material" type="{http://publicadores/}dtMaterial" minOccurs="0"/&gt;
- *         &lt;element name="prestamo" type="{http://publicadores/}dtPrestamo" minOccurs="0"/&gt;
- *       &lt;/sequence&gt;
- *     &lt;/restriction&gt;
- *   &lt;/complexContent&gt;
- * &lt;/complexType&gt;
+ * &lt;complexType name="dtMaterialConPrestamo">
+ *   &lt;complexContent>
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *       &lt;sequence>
+ *         &lt;element name="material" type="{http://publicadores/}dtMaterial" minOccurs="0"/>
+ *         &lt;element name="prestamo" type="{http://publicadores/}dtPrestamo" minOccurs="0"/>
+ *       &lt;/sequence>
+ *     &lt;/restriction>
+ *   &lt;/complexContent>
+ * &lt;/complexType>
  * </pre>
  * 
  * 
@@ -37,7 +37,7 @@ public class DtMaterialConPrestamo {
     protected DtPrestamo prestamo;
 
     /**
-     * Gets the value of the material property.
+     * Obtiene el valor de la propiedad material.
      * 
      * @return
      *     possible object is
@@ -49,7 +49,7 @@ public class DtMaterialConPrestamo {
     }
 
     /**
-     * Sets the value of the material property.
+     * Define el valor de la propiedad material.
      * 
      * @param value
      *     allowed object is
@@ -61,7 +61,7 @@ public class DtMaterialConPrestamo {
     }
 
     /**
-     * Gets the value of the prestamo property.
+     * Obtiene el valor de la propiedad prestamo.
      * 
      * @return
      *     possible object is
@@ -73,7 +73,7 @@ public class DtMaterialConPrestamo {
     }
 
     /**
-     * Sets the value of the prestamo property.
+     * Define el valor de la propiedad prestamo.
      * 
      * @param value
      *     allowed object is

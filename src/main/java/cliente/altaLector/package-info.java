@@ -1,2 +1,2 @@
-@jakarta.xml.bind.annotation.XmlSchema(namespace = "http://publicadores/")
+@javax.xml.bind.annotation.XmlSchema(namespace = "http://publicadores/")
 package cliente.altaLector;

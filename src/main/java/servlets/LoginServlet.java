@@ -36,7 +36,8 @@ public class LoginServlet extends HttpServlet {
         if (resultado != null) {
             String nombre = resultado.getUsuario().getNombre(); // ✅ correcto
  // ← usamos el nombre real del lector
-            request.setAttribute("nombreLector", nombre); // ← propagamos el nombre
+            request.getSession().setAttribute("nombreLector", nombre); // ← propagamos el nombre
+            request.getSession().setAttribute("tipoUsuario", resultado.getTipo()); // ← guardamos el tipo de usuario
 
             switch (resultado.getTipo()) {
                 case "lector":

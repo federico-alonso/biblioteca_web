@@ -1,10 +1,10 @@
 
 package cliente.altaLector;
 
+import javax.xml.bind.JAXBElement;
+import javax.xml.bind.annotation.XmlElementDecl;
+import javax.xml.bind.annotation.XmlRegistry;
 import javax.xml.namespace.QName;
-import jakarta.xml.bind.JAXBElement;
-import jakarta.xml.bind.annotation.XmlElementDecl;
-import jakarta.xml.bind.annotation.XmlRegistry;
 
 
 /**
@@ -42,12 +42,8 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link LectorRepetidoExcepcion }{@code >}
+     * Create an instance of {@link JAXBElement }{@code <}{@link LectorRepetidoExcepcion }{@code >}}
      * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link LectorRepetidoExcepcion }{@code >}
      */
     @XmlElementDecl(namespace = "http://publicadores/", name = "LectorRepetidoExcepcion")
     public JAXBElement<LectorRepetidoExcepcion> createLectorRepetidoExcepcion(LectorRepetidoExcepcion value) {

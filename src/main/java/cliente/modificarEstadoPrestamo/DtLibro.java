@@ -1,27 +1,27 @@
 
 package cliente.modificarEstadoPrestamo;
 
-import jakarta.xml.bind.annotation.XmlAccessType;
-import jakarta.xml.bind.annotation.XmlAccessorType;
-import jakarta.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for dtLibro complex type.
+ * <p>Clase Java para dtLibro complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
  * 
  * <pre>
- * &lt;complexType name="dtLibro"&gt;
- *   &lt;complexContent&gt;
- *     &lt;extension base="{http://publicadores/}dtMaterial"&gt;
- *       &lt;sequence&gt;
- *         &lt;element name="titulo" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
- *         &lt;element name="cantidadPag" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
- *       &lt;/sequence&gt;
- *     &lt;/extension&gt;
- *   &lt;/complexContent&gt;
- * &lt;/complexType&gt;
+ * &lt;complexType name="dtLibro">
+ *   &lt;complexContent>
+ *     &lt;extension base="{http://publicadores/}dtMaterial">
+ *       &lt;sequence>
+ *         &lt;element name="titulo" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="cantidadPag" type="{http://www.w3.org/2001/XMLSchema}int"/>
+ *       &lt;/sequence>
+ *     &lt;/extension>
+ *   &lt;/complexContent>
+ * &lt;/complexType>
  * </pre>
  * 
  * 
@@ -39,7 +39,7 @@ public class DtLibro
     protected int cantidadPag;
 
     /**
-     * Gets the value of the titulo property.
+     * Obtiene el valor de la propiedad titulo.
      * 
      * @return
      *     possible object is
@@ -51,7 +51,7 @@ public class DtLibro
     }
 
     /**
-     * Sets the value of the titulo property.
+     * Define el valor de la propiedad titulo.
      * 
      * @param value
      *     allowed object is
@@ -63,7 +63,7 @@ public class DtLibro
     }
 
     /**
-     * Gets the value of the cantidadPag property.
+     * Obtiene el valor de la propiedad cantidadPag.
      * 
      */
     public int getCantidadPag() {
@@ -71,7 +71,7 @@ public class DtLibro
     }
 
     /**
-     * Sets the value of the cantidadPag property.
+     * Define el valor de la propiedad cantidadPag.
      * 
      */
     public void setCantidadPag(int value) {

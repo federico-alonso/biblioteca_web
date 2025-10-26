@@ -1,10 +1,10 @@
 
 package cliente.modificarEstadoLector;
 
+import javax.xml.bind.JAXBElement;
+import javax.xml.bind.annotation.XmlElementDecl;
+import javax.xml.bind.annotation.XmlRegistry;
 import javax.xml.namespace.QName;
-import jakarta.xml.bind.JAXBElement;
-import jakarta.xml.bind.annotation.XmlElementDecl;
-import jakarta.xml.bind.annotation.XmlRegistry;
 
 
 /**
@@ -34,19 +34,19 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link StringArray }
+     * 
+     */
+    public StringArray createStringArray() {
+        return new StringArray();
+    }
+
+    /**
      * Create an instance of {@link LectorNoExisteExcepcion }
      * 
      */
     public LectorNoExisteExcepcion createLectorNoExisteExcepcion() {
         return new LectorNoExisteExcepcion();
-    }
-
-    /**
-     * Create an instance of {@link DtLector }
-     * 
-     */
-    public DtLector createDtLector() {
-        return new DtLector();
     }
 
     /**
@@ -58,20 +58,16 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link StringArray }
+     * Create an instance of {@link DtLector }
      * 
      */
-    public StringArray createStringArray() {
-        return new StringArray();
+    public DtLector createDtLector() {
+        return new DtLector();
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link LectorNoExisteExcepcion }{@code >}
+     * Create an instance of {@link JAXBElement }{@code <}{@link LectorNoExisteExcepcion }{@code >}}
      * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link LectorNoExisteExcepcion }{@code >}
      */
     @XmlElementDecl(namespace = "http://publicadores/", name = "LectorNoExisteExcepcion")
     public JAXBElement<LectorNoExisteExcepcion> createLectorNoExisteExcepcion(LectorNoExisteExcepcion value) {

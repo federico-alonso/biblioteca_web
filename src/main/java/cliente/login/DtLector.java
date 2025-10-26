@@ -1,31 +1,31 @@
 
 package cliente.login;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlSchemaType;
+import javax.xml.bind.annotation.XmlType;
 import javax.xml.datatype.XMLGregorianCalendar;
-import jakarta.xml.bind.annotation.XmlAccessType;
-import jakarta.xml.bind.annotation.XmlAccessorType;
-import jakarta.xml.bind.annotation.XmlSchemaType;
-import jakarta.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for dtLector complex type.
+ * <p>Clase Java para dtLector complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
  * 
  * <pre>
- * &lt;complexType name="dtLector"&gt;
- *   &lt;complexContent&gt;
- *     &lt;extension base="{http://publicadores/}dtUsuario"&gt;
- *       &lt;sequence&gt;
- *         &lt;element name="direccion" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
- *         &lt;element name="fechaRegistro" type="{http://www.w3.org/2001/XMLSchema}dateTime" minOccurs="0"/&gt;
- *         &lt;element name="estado" type="{http://publicadores/}estadoLector" minOccurs="0"/&gt;
- *         &lt;element name="zona" type="{http://publicadores/}zona" minOccurs="0"/&gt;
- *       &lt;/sequence&gt;
- *     &lt;/extension&gt;
- *   &lt;/complexContent&gt;
- * &lt;/complexType&gt;
+ * &lt;complexType name="dtLector">
+ *   &lt;complexContent>
+ *     &lt;extension base="{http://publicadores/}dtUsuario">
+ *       &lt;sequence>
+ *         &lt;element name="direccion" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="fechaRegistro" type="{http://www.w3.org/2001/XMLSchema}dateTime" minOccurs="0"/>
+ *         &lt;element name="estado" type="{http://publicadores/}estadoLector" minOccurs="0"/>
+ *         &lt;element name="zona" type="{http://publicadores/}zona" minOccurs="0"/>
+ *       &lt;/sequence>
+ *     &lt;/extension>
+ *   &lt;/complexContent>
+ * &lt;/complexType>
  * </pre>
  * 
  * 
@@ -50,7 +50,7 @@ public class DtLector
     protected Zona zona;
 
     /**
-     * Gets the value of the direccion property.
+     * Obtiene el valor de la propiedad direccion.
      * 
      * @return
      *     possible object is
@@ -62,7 +62,7 @@ public class DtLector
     }
 
     /**
-     * Sets the value of the direccion property.
+     * Define el valor de la propiedad direccion.
      * 
      * @param value
      *     allowed object is
@@ -74,7 +74,7 @@ public class DtLector
     }
 
     /**
-     * Gets the value of the fechaRegistro property.
+     * Obtiene el valor de la propiedad fechaRegistro.
      * 
      * @return
      *     possible object is
@@ -86,7 +86,7 @@ public class DtLector
     }
 
     /**
-     * Sets the value of the fechaRegistro property.
+     * Define el valor de la propiedad fechaRegistro.
      * 
      * @param value
      *     allowed object is
@@ -98,7 +98,7 @@ public class DtLector
     }
 
     /**
-     * Gets the value of the estado property.
+     * Obtiene el valor de la propiedad estado.
      * 
      * @return
      *     possible object is
@@ -110,7 +110,7 @@ public class DtLector
     }
 
     /**
-     * Sets the value of the estado property.
+     * Define el valor de la propiedad estado.
      * 
      * @param value
      *     allowed object is
@@ -122,7 +122,7 @@ public class DtLector
     }
 
     /**
-     * Gets the value of the zona property.
+     * Obtiene el valor de la propiedad zona.
      * 
      * @return
      *     possible object is
@@ -134,7 +134,7 @@ public class DtLector
     }
 
     /**
-     * Sets the value of the zona property.
+     * Define el valor de la propiedad zona.
      * 
      * @param value
      *     allowed object is

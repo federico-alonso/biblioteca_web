@@ -62,7 +62,7 @@
     %>
 
     <div class="text-center mt-4">
-      <a href="loginUsuario.jsp" class="btn btn-link">¿Ya tenés cuenta? Iniciar sesión</a>
+      <a href="login.jsp" class="btn btn-link">¿Ya tenés cuenta? Iniciar sesión</a>
     </div>
   </div>
 </body>
