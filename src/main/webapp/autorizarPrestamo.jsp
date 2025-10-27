@@ -16,14 +16,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Autorizar Préstamos</title>
+    <title>Autorizar Prestamos</title>
     <link rel="stylesheet" href="css/bootstrap.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
 <div class="container mt-4">
-    <h2 class="mb-4">Préstamos Pendientes de Autorización</h2>
+    <h2 class="mb-4">Prestamos Pendientes de Autorizacion</h2>
 
     <% if (mensaje != null) { %>
         <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -72,15 +72,15 @@
                             <div class="ml-3">
                                 <strong>Tipo:</strong> Libro<br>
                                 <strong>Título:</strong> <%= libro.getTitulo() %><br>
-                                <strong>Páginas:</strong> <%= libro.getCantidadPag() %><br>
+                                <strong>Paginas:</strong> <%= libro.getCantidadPag() %><br>
                                 <strong>Fecha Ingreso:</strong> <%= libro.getFechaIngreso() != null ? libro.getFechaIngreso() : "N/A" %>
                             </div>
                         <% } else if (material instanceof DtArticuloEspecial) {
                                 DtArticuloEspecial articulo = (DtArticuloEspecial) material;
                         %>
                             <div class="ml-3">
-                                <strong>Tipo:</strong> Artículo Especial<br>
-                                <strong>Descripción:</strong> <%= articulo.getDescripcion() %><br>
+                                <strong>Tipo:</strong> Articulo Especial<br>
+                                <strong>Descripcion:</strong> <%= articulo.getDescripcion() %><br>
                                 <strong>Peso:</strong> <%= articulo.getPesoKg() %> kg<br>
                                 <strong>Dimensiones:</strong> <%= articulo.getDimensiones() %><br>
                                 <strong>Fecha Ingreso:</strong> <%= articulo.getFechaIngreso() != null ? articulo.getFechaIngreso() : "N/A" %>
@@ -99,11 +99,6 @@
                         <input type="hidden" name="idPrestamo" value="<%= prestamo.getId() %>"/>
                         <input type="hidden" name="accion" id="accion_<%= prestamo.getId() %>" value=""/>
                         
-                        <div class="form-group mb-3">
-                            <label for="comentario_<%= prestamo.getId() %>">Comentario (opcional):</label>
-                            <textarea class="form-control" id="comentario_<%= prestamo.getId() %>" name="comentario" rows="2" placeholder="Ingrese un comentario si desea..."></textarea>
-                        </div>
-
                         <div class="btn-group w-100" role="group">
                             <button type="submit" class="btn btn-success" onclick="document.getElementById('accion_<%= prestamo.getId() %>').value='autorizar'">
                                 <i class="fas fa-check"></i> Autorizar
@@ -122,11 +117,11 @@
     </div>
     <% } else { %>
         <div class="alert alert-info">
-            No hay préstamos pendientes de autorización en este momento.
+            No hay prestamos pendientes de autorizacion en este momento.
         </div>
     <% } %>
 
-    <a href="menuBibliotecario.jsp" class="btn btn-secondary mt-3">Volver al menú</a>
+    <a href="menuBibliotecario.jsp" class="btn btn-secondary mt-3">Volver al menu</a>
 </div>
 </body>
 </html>

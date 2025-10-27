@@ -69,7 +69,7 @@ public class ReportePrestamosZonaServlet extends HttpServlet {
                             info.setDevueltos(cantidad);
                             break;
                         case RECHAZADO:
-                            // Los rechazados no se contabilizan en los totales
+                            info.setRechazados(cantidad);
                             break;
                     }
                     
@@ -107,6 +107,7 @@ public class ReportePrestamosZonaServlet extends HttpServlet {
         private int pendientes;
         private int activos;
         private int devueltos;
+        private int rechazados;
         private int total;
 
         public ZonaInfo(Zona zona) {
@@ -114,6 +115,7 @@ public class ReportePrestamosZonaServlet extends HttpServlet {
             this.pendientes = 0;
             this.activos = 0;
             this.devueltos = 0;
+            this.rechazados = 0;
             this.total = 0;
         }
 
@@ -148,6 +150,14 @@ public class ReportePrestamosZonaServlet extends HttpServlet {
 
         public void setDevueltos(int devueltos) {
             this.devueltos = devueltos;
+        }
+
+        public int getRechazados() {
+            return rechazados;
+        }
+
+        public void setRechazados(int rechazados) {
+            this.rechazados = rechazados;
         }
 
         public int getTotal() {

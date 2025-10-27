@@ -7,7 +7,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Reporte de Préstamos por Zona</title>
+    <title>Reporte de Prestamos por Zona</title>
     <link rel="stylesheet" href="css/bootstrap.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
@@ -49,23 +49,23 @@
     <div class="row">
         <!-- Panel lateral -->
         <div class="col-md-2 bg-light vh-100">
-            <h5 class="mt-4">Menú</h5>
+            <h5 class="mt-4">Menu</h5>
             <ul class="nav flex-column mt-3">
                 <li class="nav-item">
                     <a class="nav-link btn btn-outline-primary mb-2" href="menuBibliotecario.jsp">
-                        ← Volver al Menú
+                        ← Volver al Menu
                     </a>
                 </li>
             </ul>
         </div>
 
-        <!-- Área principal -->
+        <!-- Area principal -->
         <div class="col-md-10">
             <div class="mt-4">
                 <h2 class="mb-4">
-                    <i class="bi bi-geo-alt"></i> Reporte de Préstamos por Zona
+                    <i class="bi bi-geo-alt"></i> Reporte de Prestamos por Zona
                 </h2>
-                <p class="text-muted">Análisis del uso del servicio de biblioteca en diferentes barrios y zonas.</p>
+                <p class="text-muted">Analisis del uso del servicio de biblioteca en diferentes barrios y zonas.</p>
 
                 <% 
                     String error = (String) request.getAttribute("error");
@@ -90,7 +90,7 @@
                         <div class="row text-center">
                             <div class="col-md-2">
                                 <h3 class="mb-0"><%= totalGeneral != null ? totalGeneral : 0 %></h3>
-                                <small>Total de Préstamos</small>
+                                <small>Total de Prestamos</small>
                             </div>
                             <div class="col-md-2">
                                 <h3 class="mb-0"><%= zonasInfo.size() %></h3>
@@ -104,7 +104,7 @@
                                     }
                                 %>
                                 <h3 class="mb-0"><%= totalPendientes %></h3>
-                                <small>Préstamos Pendientes</small>
+                                <small>Pendientes</small>
                             </div>
                             <div class="col-md-2">
                                 <% 
@@ -114,7 +114,7 @@
                                     }
                                 %>
                                 <h3 class="mb-0"><%= totalActivos %></h3>
-                                <small>Préstamos Activos</small>
+                                <small>Activos</small>
                             </div>
                             <div class="col-md-2">
                                 <% 
@@ -124,7 +124,17 @@
                                     }
                                 %>
                                 <h3 class="mb-0"><%= totalDevueltos %></h3>
-                                <small>Préstamos Devueltos</small>
+                                <small>Devueltos</small>
+                            </div>
+                            <div class="col-md-2">
+                                <% 
+                                    int totalRechazados = 0;
+                                    for (ZonaInfo info : zonasInfo.values()) {
+                                        totalRechazados += info.getRechazados();
+                                    }
+                                %>
+                                <h3 class="mb-0"><%= totalRechazados %></h3>
+                                <small>Rechazados</small>
                             </div>
                         </div>
                     </div>
@@ -134,7 +144,7 @@
                         <div class="col-md-6">
                             <div class="card">
                                 <div class="card-body">
-                                    <h5 class="card-title">Distribución de Préstamos por Zona</h5>
+                                    <h5 class="card-title">Distribucion de Prestamos por Zona</h5>
                                     <div class="chart-container">
                                         <canvas id="zonasChart"></canvas>
                                     </div>
@@ -144,7 +154,7 @@
                         <div class="col-md-6">
                             <div class="card">
                                 <div class="card-body">
-                                    <h5 class="card-title">Estados de Préstamos por Zona</h5>
+                                    <h5 class="card-title">Estados de Prestamos por Zona</h5>
                                     <div class="chart-container">
                                         <canvas id="estadosChart"></canvas>
                                     </div>
@@ -183,6 +193,10 @@
                                                 <div class="stat-value text-info"><%= info.getDevueltos() %></div>
                                                 <div class="stat-label">Devueltos</div>
                                             </div>
+                                            <div class="col-6">
+                                                <div class="stat-value text-danger"><%= info.getRechazados() %></div>
+                                                <div class="stat-label">Rechazados</div>
+                                            </div>
                                         </div>
                                         
                                         <!-- Barra de progreso -->
@@ -191,7 +205,7 @@
                                                 double porcentajeActivos = info.getTotal() > 0 ? 
                                                     (info.getActivos() * 100.0 / info.getTotal()) : 0;
                                             %>
-                                            <small class="text-muted">Tasa de préstamos activos</small>
+                                            <small class="text-muted">Tasa de prestamos activos</small>
                                             <div class="progress" style="height: 20px;">
                                                 <div class="progress-bar bg-success" role="progressbar" 
                                                      style="width: <%= porcentajeActivos %>%;" 
@@ -224,6 +238,7 @@
                                             <th class="text-center">Pendientes</th>
                                             <th class="text-center">Activos</th>
                                             <th class="text-center">Devueltos</th>
+                                            <th class="text-center">Rechazados</th>
                                             <th class="text-center">Total</th>
                                             <th class="text-center">% del Total</th>
                                         </tr>
@@ -240,6 +255,7 @@
                                                 <td class="text-center"><span class="badge badge-warning"><%= info.getPendientes() %></span></td>
                                                 <td class="text-center"><span class="badge badge-success"><%= info.getActivos() %></span></td>
                                                 <td class="text-center"><span class="badge badge-info"><%= info.getDevueltos() %></span></td>
+                                                <td class="text-center"><span class="badge badge-danger"><%= info.getRechazados() %></span></td>
                                                 <td class="text-center"><strong><%= info.getTotal() %></strong></td>
                                                 <td class="text-center"><%= String.format("%.1f", porcentaje) %>%</td>
                                             </tr>
@@ -254,6 +270,7 @@
                                             </td>
                                             <td class="text-center"><strong><%= totalActivos %></strong></td>
                                             <td class="text-center"><strong><%= totalDevueltos %></strong></td>
+                                            <td class="text-center"><strong><%= totalRechazados %></strong></td>
                                             <td class="text-center"><strong><%= totalGeneral %></strong></td>
                                             <td class="text-center"><strong>100%</strong></td>
                                         </tr>
@@ -266,7 +283,7 @@
                 <% } else if (error == null) { %>
                     <div class="alert alert-info mt-3">
                         <h5>No hay datos disponibles</h5>
-                        <p>No se encontraron préstamos registrados en ninguna zona.</p>
+                        <p>No se encontraron prestamos registrados en ninguna zona.</p>
                     </div>
                 <% } %>
 
@@ -277,7 +294,7 @@
 
 <% if (zonasInfo != null && !zonasInfo.isEmpty()) { %>
 <script>
-    // Preparar datos para los gráficos
+    // Preparar datos para los graficos
     const zonas = [
         <% for (Zona zona : zonas) { 
             ZonaInfo info = zonasInfo.get(zona);
@@ -288,7 +305,8 @@
             total: <%= info.getTotal() %>,
             pendientes: <%= info.getPendientes() %>,
             activos: <%= info.getActivos() %>,
-            devueltos: <%= info.getDevueltos() %>
+            devueltos: <%= info.getDevueltos() %>,
+            rechazados: <%= info.getRechazados() %>
         },
         <% 
             }
@@ -296,7 +314,7 @@
         %>
     ];
 
-    // Gráfico de distribución por zona (Pie Chart)
+    // Grafico de distribucion por zona (Pie Chart)
     const ctxZonas = document.getElementById('zonasChart').getContext('2d');
     new Chart(ctxZonas, {
         type: 'pie',
@@ -324,7 +342,7 @@
         }
     });
 
-    // Gráfico de estados por zona (Stacked Bar Chart)
+    // Grafico de estados por zona (Stacked Bar Chart)
     const ctxEstados = document.getElementById('estadosChart').getContext('2d');
     new Chart(ctxEstados, {
         type: 'bar',
@@ -345,6 +363,11 @@
                     label: 'Devueltos',
                     data: zonas.map(z => z.devueltos),
                     backgroundColor: '#17A2B8'
+                },
+                {
+                    label: 'Rechazados',
+                    data: zonas.map(z => z.rechazados),
+                    backgroundColor: '#DC3545'
                 }
             ]
         },
