@@ -151,7 +151,6 @@
                                                 case PENDIENTE:
                                                     badgeClass = "badge-warning";
                                                     break;
-                                                case ACTIVO:
                                                 case EN_CURSO:
                                                     badgeClass = "badge-success";
                                                     break;

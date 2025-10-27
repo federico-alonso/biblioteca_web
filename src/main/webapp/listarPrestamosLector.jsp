@@ -282,17 +282,21 @@
                                         String iconoEstado = "";
                                         
                                         switch (estadoStr) {
-                                            case "ACTIVO":
-                                                badgeEstado = "badge-activo";
+                                            case "PENDIENTE":
+                                                badgeEstado = "badge-warning";
+                                                iconoEstado = "⏳";
+                                                break;
+                                            case "EN_CURSO":
+                                                badgeEstado = "badge-success";
                                                 iconoEstado = "✅";
                                                 break;
-                                            case "FINALIZADO":
-                                                badgeEstado = "badge-finalizado";
-                                                iconoEstado = "🏁";
+                                            case "DEVUELTO":
+                                                badgeEstado = "badge-info";
+                                                iconoEstado = "📚";
                                                 break;
-                                            case "VENCIDO":
-                                                badgeEstado = "badge-vencido";
-                                                iconoEstado = "⚠️";
+                                            case "RECHAZADO":
+                                                badgeEstado = "badge-danger";
+                                                iconoEstado = "❌";
                                                 break;
                                         }
                                 %>

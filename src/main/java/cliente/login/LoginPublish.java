@@ -40,4 +40,11 @@ public interface LoginPublish {
         @WebParam(name = "arg1", partName = "arg1")
         String arg1);
 
+    /**
+     * 
+     */
+    @WebMethod
+    @Action(input = "http://publicadores/LoginPublish/logoutRequest", output = "http://publicadores/LoginPublish/logoutResponse")
+    public void logout();
+
 }

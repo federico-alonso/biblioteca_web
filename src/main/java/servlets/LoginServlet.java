@@ -31,13 +31,23 @@ public class LoginServlet extends HttpServlet {
         String email = request.getParameter("email");
         String contrasena = request.getParameter("contrasena");
 
-        DtLoginResultado resultado = loginService.login(email, contrasena);
+        try {
+            DtLoginResultado resultado = loginService.login(email, contrasena);
 
-        if (resultado != null) {
+            if (resultado == null) {
+                request.setAttribute("mensaje", "Credenciales inválidas.");
+                request.getRequestDispatcher("login.jsp").forward(request, response);
+                return;
+            }
             String nombre = resultado.getUsuario().getNombre(); // ✅ correcto
  // ← usamos el nombre real del lector
             request.getSession().setAttribute("nombreLector", nombre); // ← propagamos el nombre
             request.getSession().setAttribute("tipoUsuario", resultado.getTipo()); // ← guardamos el tipo de usuario
+            
+            // Si es bibliotecario, guardar también como nombreBibliotecario para el servicio SOAP
+            if ("bibliotecario".equals(resultado.getTipo())) {
+                request.getSession().setAttribute("nombreBibliotecario", nombre);
+            }
 
             switch (resultado.getTipo()) {
                 case "lector":
@@ -50,8 +60,9 @@ public class LoginServlet extends HttpServlet {
                     request.setAttribute("mensaje", "Tipo de usuario desconocido.");
                     request.getRequestDispatcher("login.jsp").forward(request, response);
             }
-        } else {
-            request.setAttribute("mensaje", "Credenciales inválidas.");
+        } catch (Exception e) {
+            e.printStackTrace();
+            request.setAttribute("mensaje", "Error inesperado al iniciar sesión.");
             request.getRequestDispatcher("login.jsp").forward(request, response);
         }
     }

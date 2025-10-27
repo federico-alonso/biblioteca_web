@@ -105,44 +105,34 @@ public class PrestamoServlet extends HttpServlet {
                 request.getRequestDispatcher("donaciones.jsp").forward(request, response);
                 return;
             }
-
-            GregorianCalendar gc = new GregorianCalendar();
-            XMLGregorianCalendar fechaSolicitud = DatatypeFactory.newInstance().newXMLGregorianCalendar(gc);
-
-            // Obtener un bibliotecario para asociar al préstamo
-            DtBibliotecarioArray bibliotecarios = prestamoService.getListadoBibliotecarios();
-            DtBibliotecario bibliotecario = null;
-            if (bibliotecarios.getItem() != null && !bibliotecarios.getItem().isEmpty()) {
-                // Asignación balanceada: rotar entre bibliotecarios disponibles
-                java.util.Random random = new java.util.Random();
-                int index = random.nextInt(bibliotecarios.getItem().size());
-                bibliotecario = bibliotecarios.getItem().get(index);
-            } else {
+            
+            // Validar que el lector no esté suspendido
+            if (lectorCompleto.getEstado() != null && lectorCompleto.getEstado().toString().equals("SUSPENDIDO")) {
                 DtMaterialArray recarga = prestamoService.getListadoMateriales();
                 request.setAttribute("donaciones", recarga.getItem());
                 request.setAttribute("nombreLector", nombreLector);
-                request.setAttribute("mensaje", "No hay bibliotecarios disponibles para procesar el préstamo.");
+                request.setAttribute("mensaje", "⚠️ No puedes solicitar préstamos. Tu cuenta está suspendida. Contacta al administrador.");
                 request.getRequestDispatcher("donaciones.jsp").forward(request, response);
                 return;
             }
 
+            GregorianCalendar gc = new GregorianCalendar();
+            XMLGregorianCalendar fechaSolicitud = DatatypeFactory.newInstance().newXMLGregorianCalendar(gc);
+
+            // Crear préstamo sin bibliotecario - se asignará cuando el bibliotecario lo autorice o rechace
             DtPrestamo prestamo = new DtPrestamo();
             prestamo.setMaterial(materialSeleccionado);
             prestamo.setLector(lectorCompleto); // Usar el lector completo con zona
-            prestamo.setBibliotecario(bibliotecario); // Asociar bibliotecario
+            prestamo.setBibliotecario(null); // Se asignará cuando el bibliotecario lo procese
             prestamo.setFechaSolicitud(fechaSolicitud);
-            prestamo.setEstado(EstadoPmo.EN_CURSO);
+            prestamo.setEstado(EstadoPmo.PENDIENTE); // El préstamo queda pendiente de autorización
 
             prestamoService.altaPrestamo(prestamo);
 
             DtMaterialArray recarga = prestamoService.getListadoMateriales();
             request.setAttribute("donaciones", recarga.getItem());
             request.setAttribute("nombreLector", nombreLector);
-            String mensajeExito = "Préstamo registrado correctamente.";
-            if (bibliotecario != null) {
-                mensajeExito += " Procesado por: " + bibliotecario.getNombre();
-            }
-            request.setAttribute("mensaje", mensajeExito);
+            request.setAttribute("mensaje", "Préstamo registrado y pendiente de autorización. La solicitud será revisada por un bibliotecario.");
             request.getRequestDispatcher("donaciones.jsp").forward(request, response);
 
         } catch (PrestamoYaExisteExcepcion_Exception e) {
