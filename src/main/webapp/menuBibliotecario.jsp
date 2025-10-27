@@ -13,70 +13,70 @@
 <div class="container-fluid">
     <div class="row">
         <!-- Panel lateral -->
-        <div class="col-md-3 bg-light vh-100">
+        <div class="col-12 col-md-3 bg-light text-center text-md-left">
             <h4 class="mt-4">Panel de Control</h4>
             <ul class="nav flex-column mt-3">
                 <li class="nav-item">
-                    <button class="nav-link btn btn-outline-primary mb-2" data-toggle="modal" data-target="#modalCorreo">
+                    <button class="nav-link btn btn-outline-primary mb-2 btn-block" data-toggle="modal" data-target="#modalCorreo">
                         Gestión de Usuario
                     </button>
                 </li>
                 <li class="nav-item">
-                    <form action="GestionPrestamosServlet" method="post">
-                        <button type="submit" class="nav-link btn btn-outline-secondary mb-2">
+                    <form action="GestionPrestamosServlet" method="post" class="d-grid">
+                        <button type="submit" class="nav-link btn btn-outline-secondary mb-2 btn-block">
                             Gestión de Préstamos
                         </button>
                     </form>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link btn btn-outline-success mb-2" href="altaDonacionLibro.jsp">
+                    <a class="nav-link btn btn-outline-success mb-2 btn-block" href="altaDonacionLibro.jsp">
                         Alta Donación de Libro
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link btn btn-outline-success mb-2" href="altaDonacionEspecial.jsp">
+                    <a class="nav-link btn btn-outline-success mb-2 btn-block" href="altaDonacionEspecial.jsp">
                         Alta Donación Especial
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link btn btn-outline-info mb-2" href="consultarDonaciones.jsp">
+                    <a class="nav-link btn btn-outline-info mb-2 btn-block" href="consultarDonaciones.jsp">
                         Consultar Donaciones
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link btn btn-outline-warning mb-2" href="consultarDonacionesPorFecha.jsp">
+                    <a class="nav-link btn btn-outline-warning mb-2 btn-block" href="consultarDonacionesPorFecha.jsp">
                         Consultar Donaciones por Fecha
                     </a>
                 </li>
                 <li class="nav-item">
-                    <form action="ModificarTodoPrestamoServlet" method="get">
-                        <button type="submit" class="nav-link btn btn-outline-primary mb-2">
+                    <form action="ModificarTodoPrestamoServlet" method="get" class="d-grid">
+                        <button type="submit" class="nav-link btn btn-outline-primary mb-2 btn-block">
                             Modificar Préstamos
                         </button>
                     </form>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link btn btn-outline-primary mb-2" href="ListarPrestamosLectorServlet">
+                    <a class="nav-link btn btn-outline-primary mb-2 btn-block" href="ListarPrestamosLectorServlet">
                         Préstamos por Lector
                     </a>
                 </li>
                 <li class="nav-item">
-                    <form action="HistorialPrestamosBibliotecarioServlet" method="post">
-                        <button type="submit" class="nav-link btn btn-outline-info mb-2">
+                    <form action="HistorialPrestamosBibliotecarioServlet" method="post" class="d-grid">
+                        <button type="submit" class="nav-link btn btn-outline-info mb-2 btn-block">
                             Historial Préstamos Bibliotecario
                         </button>
                     </form>
                 </li>
                 <li class="nav-item">
-                    <form action="MaterialesPopularesServlet" method="post">
-                        <button type="submit" class="nav-link btn btn-outline-warning mb-2">
+                    <form action="MaterialesPopularesServlet" method="post" class="d-grid">
+                        <button type="submit" class="nav-link btn btn-outline-warning mb-2 btn-block">
                             Materiales Populares
                         </button>
                     </form>
                 </li>
                 <li class="nav-item">
-                    <form action="ReportePrestamosZonaServlet" method="post">
-                        <button type="submit" class="nav-link btn btn-outline-dark mb-2">
+                    <form action="ReportePrestamosZonaServlet" method="post" class="d-grid">
+                        <button type="submit" class="nav-link btn btn-outline-dark mb-2 btn-block">
                             Reporte Préstamos por Zona
                         </button>
                     </form>
@@ -85,11 +85,11 @@
             </ul>
 
             <hr>
-            <a href="LogoutServlet" class="btn btn-danger">Cerrar Sesión</a>
+            <a href="LogoutServlet" class="btn btn-danger btn-block">Cerrar Sesión</a>
         </div>
 
         <!-- Área principal -->
-        <div class="col-md-9">
+        <div class="col-12 col-md-9">
             <div class="mt-4">
                 <h2>Bienvenido al panel de bibliotecario</h2>
                 <p>Desde aquí podrás gestionar usuarios, libros y más funcionalidades administrativas.</p>

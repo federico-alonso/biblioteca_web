@@ -37,13 +37,13 @@ public class ModificarLectorServlet extends HttpServlet {
             DtLector lector = estadoPort.getDtLectorPorCorreo(correo);
             String nombre = lector.getNombre(); // ← el backend espera nombre, no correo
 
-            if (nuevoEstadoStr != null) {
+            if (nuevoEstadoStr != null && !nuevoEstadoStr.isEmpty()) {
                 EstadoLector nuevoEstado = EstadoLector.valueOf(nuevoEstadoStr);
                 estadoPort.modificarEstadoLector(nombre, nuevoEstado);
                 request.setAttribute("mensajeResultado", "Estado modificado correctamente.");
             }
 
-            if (nuevaZonaStr != null) {
+            if (nuevaZonaStr != null && !nuevaZonaStr.isEmpty()) {
                 Zona nuevaZona = Zona.valueOf(nuevaZonaStr);
                 zonaPort.modificarZonaLector(nombre, nuevaZona);
                 request.setAttribute("mensajeResultado", "Zona modificada correctamente.");
