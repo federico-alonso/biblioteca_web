@@ -8,7 +8,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Gestión Completa de Préstamos</title>
+    <title>Gestion Completa de Prestamos</title>
     <link rel="stylesheet" href="css/bootstrap.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
@@ -55,16 +55,16 @@
     <div class="row mb-4">
         <div class="col-md-12">
             <h2>
-                <i class="bi bi-pencil-square"></i> Gestión Completa de Préstamos
+                <i class="bi bi-pencil-square"></i> Gestion Completa de Prestamos
             </h2>
-            <p class="text-muted">Modifica cualquier información de los préstamos: material, lector, bibliotecario, fechas y estado.</p>
+            <p class="text-muted">Modifica cualquier informacion de los prestamos: material, lector, bibliotecario, fechas y estado.</p>
         </div>
     </div>
 
     <!-- Mensajes -->
     <% if (mensaje != null) { %>
         <div class="alert alert-success alert-dismissible fade show" role="alert">
-            <strong>¡Éxito!</strong> <%= mensaje %>
+            <strong>¡Exito!</strong> <%= mensaje %>
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
@@ -84,7 +84,7 @@
     <% if (prestamos != null && !prestamos.isEmpty()) { %>
         <div class="card">
             <div class="card-header bg-primary text-white">
-                <h5 class="mb-0">Listado de Préstamos (<%= prestamos.size() %>)</h5>
+                <h5 class="mb-0">Listado de Prestamos (<%= prestamos.size() %>)</h5>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -96,7 +96,7 @@
                                 <th>Lector</th>
                                 <th>Bibliotecario</th>
                                 <th>Fecha Solicitud</th>
-                                <th>Fecha Devolución</th>
+                                <th>Fecha Devolucion</th>
                                 <th>Estado</th>
                                 <th class="table-actions">Acciones</th>
                             </tr>
@@ -187,17 +187,68 @@
                 </div>
             </div>
         </div>
+        
+        <!-- Paginacion -->
+        <%
+            Integer currentPage = (Integer) request.getAttribute("currentPage");
+            Integer totalPages = (Integer) request.getAttribute("totalPages");
+            if (currentPage != null && totalPages != null && totalPages > 1) {
+        %>
+        <nav aria-label="Paginacion">
+            <ul class="pagination justify-content-center">
+                <%
+                    // Boton Anterior
+                    if (currentPage > 1) {
+                %>
+                <li class="page-item"><a class="page-link" href="ModificarTodoPrestamoServlet?page=<%= currentPage - 1 %>">Anterior</a></li>
+                <%
+                    } else {
+                %>
+                <li class="page-item disabled"><a class="page-link" href="#">Anterior</a></li>
+                <%
+                    }
+
+                    // Numeros de Pagina
+                    for (int i = 1; i <= totalPages; i++) {
+                        if (i == currentPage) {
+                %>
+                <li class="page-item active"><a class="page-link" href="#"><%= i %></a></li>
+                <%
+                        } else {
+                %>
+                <li class="page-item"><a class="page-link" href="ModificarTodoPrestamoServlet?page=<%= i %>"><%= i %></a></li>
+                <%
+                        }
+                    }
+
+                    // Boton Siguiente
+                    if (currentPage < totalPages) {
+                %>
+                <li class="page-item"><a class="page-link" href="ModificarTodoPrestamoServlet?page=<%= currentPage + 1 %>">Siguiente</a></li>
+                <%
+                    } else {
+                %>
+                <li class="page-item disabled"><a class="page-link" href="#">Siguiente</a></li>
+                <%
+                    }
+                %>
+            </ul>
+        </nav>
+        <%
+            }
+        %>
+        
     <% } else { %>
         <div class="alert alert-info">
-            <h5>No hay préstamos registrados</h5>
-            <p>No se encontraron préstamos en el sistema.</p>
+            <h5>No hay prestamos registrados</h5>
+            <p>No se encontraron prestamos en el sistema.</p>
         </div>
     <% } %>
 
-    <!-- Botón volver -->
+    <!-- Boton volver -->
     <div class="mt-3">
         <a href="menuBibliotecario.jsp" class="btn btn-secondary">
-            <i class="bi bi-arrow-left"></i> Volver al Menú
+            <i class="bi bi-arrow-left"></i> Volver al Menu
         </a>
     </div>
 </div>

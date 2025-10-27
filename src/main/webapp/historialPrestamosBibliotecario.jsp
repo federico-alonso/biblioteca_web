@@ -14,7 +14,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 </head>
 <body>
-<div class="container mt-4">
+<div class="container-fluid mt-4">
    <h3>Historial Prestamos Bibliotecario</h3>
 
     <form class="mb-3" method="post" action="HistorialPrestamosBibliotecarioServlet">
@@ -33,15 +33,16 @@
         if (prestamos != null) {
             if (prestamos.isEmpty()){
     %>
-            <div class="alert alert-warning">El historial está vacío.</div>
+            <div class="alert alert-warning">El historial esta vacio.</div>
     <%
             } else {
     %>
-    <table class="table table-striped">
+    <div class="table-responsive">
+        <table class="table table-striped">
         <thead>
         <tr>
             <th>#</th>
-            <th>ID Préstamo</th>
+            <th>ID Prestamo</th>
             <th>ID Material</th>
             <th>Bibliotecario</th>
             <th>Lector</th>
@@ -86,7 +87,8 @@
             }
         %>
         </tbody>
-    </table>
+        </table>
+    </div>
 
     <%-- Bloque de paginación --%>
     <%

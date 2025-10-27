@@ -23,6 +23,7 @@ import java.util.List;
 @WebServlet("/ModificarTodoPrestamoServlet")
 public class ModificarTodoPrestamoServlet extends HttpServlet {
 
+    private static final int ITEMS_PER_PAGE = 6;
     private static final long serialVersionUID = 1L;
     private ModificarTodoPrestamoPublish prestamoService;
 
@@ -79,7 +80,19 @@ public class ModificarTodoPrestamoServlet extends HttpServlet {
         try {
             // Obtener todos los préstamos
             DtPrestamoArray prestamosArray = prestamoService.listarPrestamos();
-            List<DtPrestamo> prestamos = prestamosArray.getItem();
+            List<DtPrestamo> todosLosPrestamos = prestamosArray.getItem();
+            
+            // Lógica de Paginación
+            String pageStr = request.getParameter("page");
+            int currentPage = (pageStr == null || pageStr.isEmpty()) ? 1 : Integer.parseInt(pageStr);
+
+            int totalItems = todosLosPrestamos.size();
+            int totalPages = (int) Math.ceil((double) totalItems / ITEMS_PER_PAGE);
+
+            int start = (currentPage - 1) * ITEMS_PER_PAGE;
+            int end = Math.min(start + ITEMS_PER_PAGE, totalItems);
+
+            List<DtPrestamo> prestamosParaPagina = todosLosPrestamos.subList(start, end);
             
             // Obtener listas para los dropdowns
             DtLectorArray lectoresArray = prestamoService.getListadoLectores();
@@ -95,7 +108,9 @@ public class ModificarTodoPrestamoServlet extends HttpServlet {
             EstadoPmo[] estados = EstadoPmo.values();
             
             // Establecer atributos
-            request.setAttribute("prestamos", prestamos);
+            request.setAttribute("prestamos", prestamosParaPagina);
+            request.setAttribute("currentPage", currentPage);
+            request.setAttribute("totalPages", totalPages);
             request.setAttribute("lectores", lectores);
             request.setAttribute("bibliotecarios", bibliotecarios);
             request.setAttribute("materiales", materiales);

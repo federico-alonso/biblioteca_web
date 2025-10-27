@@ -22,7 +22,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
-<div class="container mt-4">
+<div class="container-fluid mt-4">
     <h2 class="mb-4">Prestamos Pendientes de Autorizacion</h2>
 
     <% if (mensaje != null) { %>
@@ -49,7 +49,7 @@
             for (DtPrestamo prestamo : prestamos) {
                 DtMaterial material = prestamo.getMaterial();
         %>
-        <div class="col-md-6 mb-4">
+        <div class="col-12 col-md-6 col-lg-4 mb-4">
             <div class="card shadow-sm">
                 <div class="card-header bg-warning text-white">
                     <h5 class="mb-0">Solicitud #<%= prestamo.getId() %></h5>
@@ -71,7 +71,7 @@
                         %>
                             <div class="ml-3">
                                 <strong>Tipo:</strong> Libro<br>
-                                <strong>Título:</strong> <%= libro.getTitulo() %><br>
+                                <strong>Titulo:</strong> <%= libro.getTitulo() %><br>
                                 <strong>Paginas:</strong> <%= libro.getCantidadPag() %><br>
                                 <strong>Fecha Ingreso:</strong> <%= libro.getFechaIngreso() != null ? libro.getFechaIngreso() : "N/A" %>
                             </div>

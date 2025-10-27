@@ -9,7 +9,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Préstamos por Lector - Biblioteca</title>
+    <title>Prestamos por Lector - Biblioteca</title>
     <link rel="stylesheet" href="css/bootstrap.css">
     <style>
         body {
@@ -164,16 +164,16 @@
     <div class="container">
         <!-- Encabezado -->
         <div class="text-center mb-4">
-            <h1 class="text-white mb-3">📚 Préstamos por Lector</h1>
-            <p class="text-white">Consulta el historial de préstamos de cada lector</p>
+            <h1 class="text-white mb-3">📚 Prestamos por Lector</h1>
+            <p class="text-white">Consulta el historial de prestamos de cada lector</p>
         </div>
 
         <!-- Botón Volver -->
         <div class="mb-3">
-            <a href="menuBibliotecario.jsp" class="btn-back">← Volver al Menú</a>
+            <a href="menuBibliotecario.jsp" class="btn-back">← Volver al Menu</a>
         </div>
 
-        <!-- Mensajes de Error/Éxito -->
+        <!-- Mensajes de Error/Exito -->
         <% if (request.getAttribute("error") != null) { %>
             <div class="alert alert-danger alert-dismissible fade show" role="alert">
                 <strong>❌ Error:</strong> <%= request.getAttribute("error") %>
@@ -188,7 +188,7 @@
             </div>
         <% } %>
 
-        <!-- Formulario de Búsqueda -->
+        <!-- Formulario de Busqueda -->
         <div class="card">
             <div class="card-header">
                 <h3>🔍 Seleccionar Lector</h3>
@@ -218,10 +218,10 @@
                         <div class="col-md-6 mb-3">
                             <div class="d-grid gap-2 d-md-flex">
                                 <button type="submit" name="tipoBusqueda" value="activos" class="btn btn-success flex-fill">
-                                    📋 Préstamos Activos
+                                    📋 Prestamos Activos
                                 </button>
                                 <button type="submit" name="tipoBusqueda" value="todos" class="btn btn-info flex-fill">
-                                    📚 Todos los Préstamos
+                                    📚 Todos los Prestamos
                                 </button>
                             </div>
                         </div>
@@ -236,13 +236,13 @@
             if (prestamos != null && !prestamos.isEmpty()) {
                 Integer totalItems = (Integer) request.getAttribute("totalItems");
                 String tipoBusqueda = (String) request.getAttribute("tipoBusqueda");
-                String tituloTabla = "activos".equals(tipoBusqueda) ? "Préstamos Activos" : "Historial Completo de Préstamos";
+                String tituloTabla = "activos".equals(tipoBusqueda) ? "Prestamos Activos" : "Historial Completo de Prestamos";
         %>
             <div class="card">
                 <div class="card-header">
                     <div class="d-flex justify-content-between align-items-center">
                         <h3><%= tituloTabla %> de <%= nombreLectorSeleccionado %></h3>
-                        <span class="badge bg-light text-dark"><%= totalItems %> préstamo(s)</span>
+                        <span class="badge bg-light text-dark"><%= totalItems %> prestamo(s)</span>
                     </div>
                 </div>
                 <div class="card-body p-0">
@@ -255,8 +255,8 @@
                                     <th>Tipo</th>
                                     <th>Estado</th>
                                     <th>Fecha Solicitud</th>
-                                    <th>Fecha Devolución</th>
-                                    <th>Duración</th>
+                                    <th>Fecha Devolucion</th>
+                                    <th>Duracion</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -272,7 +272,7 @@
                                             nombreMaterial = ((DtLibro) material).getTitulo();
                                             badgeTipo = "badge-libro";
                                         } else if (material instanceof DtArticuloEspecial) {
-                                            tipoMaterial = "Artículo Especial";
+                                            tipoMaterial = "Articulo Especial";
                                             nombreMaterial = ((DtArticuloEspecial) material).getDescripcion();
                                             badgeTipo = "badge-articulo";
                                         }
@@ -309,7 +309,7 @@
                                         <td><%= prestamo.getFechaDevolucion() != null ? prestamo.getFechaDevolucion().toString().substring(0, 10) : "Pendiente" %></td>
                                         <td>
                                             <% 
-                                                // Calcular días entre fechas
+                                                // Calcular dias entre fechas
                                                 if (prestamo.getFechaSolicitud() != null) {
                                                     long dias = 0;
                                                     if (prestamo.getFechaDevolucion() != null) {
@@ -321,7 +321,7 @@
                                                                   - prestamo.getFechaSolicitud().toGregorianCalendar().getTimeInMillis();
                                                         dias = diff / (24 * 60 * 60 * 1000);
                                                     }
-                                                    out.print(dias + " días");
+                                                    out.print(dias + " dias");
                                                 } else {
                                                     out.print("N/A");
                                                 }
@@ -340,16 +340,16 @@
                 </div>
             </div>
 
-            <!-- Paginación -->
+            <!-- Paginacion -->
             <% 
                 Integer currentPage = (Integer) request.getAttribute("currentPage");
                 Integer totalPages = (Integer) request.getAttribute("totalPages");
                 
                 if (totalPages > 1) {
             %>
-                <nav aria-label="Paginación">
+                <nav aria-label="Paginacion">
                     <ul class="pagination justify-content-center">
-                        <!-- Botón Anterior -->
+                        <!-- Boton Anterior -->
                         <li class="page-item <%= (currentPage <= 1) ? "disabled" : "" %>">
                             <a class="page-link" 
                                href="ListarPrestamosLectorServlet?nombreLector=<%= nombreLectorSeleccionado %>&tipoBusqueda=<%= tipoBusqueda %>&page=<%= currentPage - 1 %>">
@@ -357,7 +357,7 @@
                             </a>
                         </li>
 
-                        <!-- Números de página -->
+                        <!-- Numeros de pagina -->
                         <% 
                             int startPage = Math.max(1, currentPage - 2);
                             int endPage = Math.min(totalPages, currentPage + 2);
@@ -372,7 +372,7 @@
                             </li>
                         <% } %>
 
-                        <!-- Botón Siguiente -->
+                        <!-- Boton Siguiente -->
                         <li class="page-item <%= (currentPage >= totalPages) ? "disabled" : "" %>">
                             <a class="page-link" 
                                href="ListarPrestamosLectorServlet?nombreLector=<%= nombreLectorSeleccionado %>&tipoBusqueda=<%= tipoBusqueda %>&page=<%= currentPage + 1 %>">
@@ -387,7 +387,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Auto-cerrar alerts después de 5 segundos
+        // Auto-cerrar alerts despues de 5 segundos
         setTimeout(function() {
             var alerts = document.querySelectorAll('.alert');
             alerts.forEach(function(alert) {
