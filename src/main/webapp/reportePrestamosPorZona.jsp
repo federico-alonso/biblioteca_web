@@ -88,15 +88,25 @@
                     <!-- Resumen Total -->
                     <div class="total-summary">
                         <div class="row text-center">
-                            <div class="col-md-3">
+                            <div class="col-md-2">
                                 <h3 class="mb-0"><%= totalGeneral != null ? totalGeneral : 0 %></h3>
                                 <small>Total de Préstamos</small>
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-2">
                                 <h3 class="mb-0"><%= zonasInfo.size() %></h3>
                                 <small>Zonas Activas</small>
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-2">
+                                <% 
+                                    int totalPendientes = 0;
+                                    for (ZonaInfo info : zonasInfo.values()) {
+                                        totalPendientes += info.getPendientes();
+                                    }
+                                %>
+                                <h3 class="mb-0"><%= totalPendientes %></h3>
+                                <small>Préstamos Pendientes</small>
+                            </div>
+                            <div class="col-md-2">
                                 <% 
                                     int totalActivos = 0;
                                     for (ZonaInfo info : zonasInfo.values()) {
@@ -106,7 +116,7 @@
                                 <h3 class="mb-0"><%= totalActivos %></h3>
                                 <small>Préstamos Activos</small>
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-2">
                                 <% 
                                     int totalDevueltos = 0;
                                     for (ZonaInfo info : zonasInfo.values()) {
@@ -240,12 +250,6 @@
                                         <tr class="table-primary font-weight-bold">
                                             <td><strong>TOTAL GENERAL</strong></td>
                                             <td class="text-center">
-                                                <% 
-                                                    int totalPendientes = 0;
-                                                    for (ZonaInfo info : zonasInfo.values()) {
-                                                        totalPendientes += info.getPendientes();
-                                                    }
-                                                %>
                                                 <strong><%= totalPendientes %></strong>
                                             </td>
                                             <td class="text-center"><strong><%= totalActivos %></strong></td>

@@ -26,13 +26,16 @@ public interface ListarPrestamosLectorPublish {
 
     /**
      * 
+     * @param arg0
      * @return
-     *     returns cliente.listarPrestamosLector.StringArray
+     *     returns cliente.listarPrestamosLector.DtPrestamoArray
      */
     @WebMethod
     @WebResult(partName = "return")
-    @Action(input = "http://publicadores/ListarPrestamosLectorPublish/obtenerNombresLectoresRequest", output = "http://publicadores/ListarPrestamosLectorPublish/obtenerNombresLectoresResponse")
-    public StringArray obtenerNombresLectores();
+    @Action(input = "http://publicadores/ListarPrestamosLectorPublish/listarPrestamosActivosLectorRequest", output = "http://publicadores/ListarPrestamosLectorPublish/listarPrestamosActivosLectorResponse")
+    public DtPrestamoArray listarPrestamosActivosLector(
+        @WebParam(name = "arg0", partName = "arg0")
+        String arg0);
 
     /**
      * 
@@ -49,15 +52,12 @@ public interface ListarPrestamosLectorPublish {
 
     /**
      * 
-     * @param arg0
      * @return
-     *     returns cliente.listarPrestamosLector.DtPrestamoArray
+     *     returns cliente.listarPrestamosLector.StringArray
      */
     @WebMethod
     @WebResult(partName = "return")
-    @Action(input = "http://publicadores/ListarPrestamosLectorPublish/listarPrestamosActivosLectorRequest", output = "http://publicadores/ListarPrestamosLectorPublish/listarPrestamosActivosLectorResponse")
-    public DtPrestamoArray listarPrestamosActivosLector(
-        @WebParam(name = "arg0", partName = "arg0")
-        String arg0);
+    @Action(input = "http://publicadores/ListarPrestamosLectorPublish/obtenerNombresLectoresRequest", output = "http://publicadores/ListarPrestamosLectorPublish/obtenerNombresLectoresResponse")
+    public StringArray obtenerNombresLectores();
 
 }

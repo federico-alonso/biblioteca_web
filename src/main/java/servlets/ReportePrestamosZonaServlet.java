@@ -62,12 +62,14 @@ public class ReportePrestamosZonaServlet extends HttpServlet {
                         case PENDIENTE:
                             info.setPendientes(cantidad);
                             break;
-                        case ACTIVO:
                         case EN_CURSO:
                             info.setActivos(info.getActivos() + cantidad);
                             break;
                         case DEVUELTO:
                             info.setDevueltos(cantidad);
+                            break;
+                        case RECHAZADO:
+                            // Los rechazados no se contabilizan en los totales
                             break;
                     }
                     

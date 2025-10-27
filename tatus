@@ -1,0 +1,10 @@
+[33mfaf1990[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m Solucionado un bug en modificar estado prestamo
+[33m10f054f[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m Se crea Servlet y Jsp de ReportePrestamosPorZona, Materiales, ModificacionPrestamos
+[33m900f5b5[m Se vuelve a agregar el boton de historial prestamos
+[33mc5b6fe2[m Merge branch 'DonacionPorFecha_ListarPrestamosLector'
+[33mb051ad3[m[33m ([m[1;31morigin/DonacionPorFecha_ListarPrestamosLector[m[33m, [m[1;32mDonacionPorFecha_ListarPrestamosLector[m[33m)[m Se crea la interfaz de consultarDonacionesPorFecha y listarPrestamosLector
+[33m2d8dc85[m[33m ([m[1;31morigin/nuevarama[m[33m)[m Historial Biblotecario + cambios en servlts
+[33mda84bd3[m ajusta_pagina_bibliotecario
+[33mbfa9db0[m Merge pull request #1 from federico-alonso/registra_libro_y_especial_web
+[33m6234a18[m[33m ([m[1;31morigin/registra_libro_y_especial_web[m[33m)[m Merge branch 'main' into registra_libro_y_especial_web
+[33m54e4bab[m agrega_consulta_donaciones_web

@@ -37,24 +37,6 @@ public interface ModificarEstadoLectorPublish {
 
     /**
      * 
-     * @param arg1
-     * @param arg0
-     * @throws LectorNoExisteExcepcion_Exception
-     */
-    @WebMethod
-    @Action(input = "http://publicadores/ModificarEstadoLectorPublish/modificarEstadoLectorRequest", output = "http://publicadores/ModificarEstadoLectorPublish/modificarEstadoLectorResponse", fault = {
-        @FaultAction(className = LectorNoExisteExcepcion_Exception.class, value = "http://publicadores/ModificarEstadoLectorPublish/modificarEstadoLector/Fault/LectorNoExisteExcepcion")
-    })
-    public void modificarEstadoLector(
-        @WebParam(name = "arg0", partName = "arg0")
-        String arg0,
-        @WebParam(name = "arg1", partName = "arg1")
-        EstadoLector arg1)
-        throws LectorNoExisteExcepcion_Exception
-    ;
-
-    /**
-     * 
      * @param arg0
      * @return
      *     returns cliente.modificarEstadoLector.EstadoLector
@@ -68,6 +50,24 @@ public interface ModificarEstadoLectorPublish {
     public EstadoLector getEstadoLector(
         @WebParam(name = "arg0", partName = "arg0")
         String arg0)
+        throws LectorNoExisteExcepcion_Exception
+    ;
+
+    /**
+     * 
+     * @param arg1
+     * @param arg0
+     * @throws LectorNoExisteExcepcion_Exception
+     */
+    @WebMethod
+    @Action(input = "http://publicadores/ModificarEstadoLectorPublish/modificarEstadoLectorRequest", output = "http://publicadores/ModificarEstadoLectorPublish/modificarEstadoLectorResponse", fault = {
+        @FaultAction(className = LectorNoExisteExcepcion_Exception.class, value = "http://publicadores/ModificarEstadoLectorPublish/modificarEstadoLector/Fault/LectorNoExisteExcepcion")
+    })
+    public void modificarEstadoLector(
+        @WebParam(name = "arg0", partName = "arg0")
+        String arg0,
+        @WebParam(name = "arg1", partName = "arg1")
+        EstadoLector arg1)
         throws LectorNoExisteExcepcion_Exception
     ;
 

@@ -28,6 +28,16 @@ public interface ModificarTodoPrestamoPublish {
     /**
      * 
      * @return
+     *     returns cliente.modificarTodoPrestamo.DtMaterialArray
+     */
+    @WebMethod
+    @WebResult(partName = "return")
+    @Action(input = "http://publicadores/ModificarTodoPrestamoPublish/getListadoMaterialesRequest", output = "http://publicadores/ModificarTodoPrestamoPublish/getListadoMaterialesResponse")
+    public DtMaterialArray getListadoMateriales();
+
+    /**
+     * 
+     * @return
      *     returns cliente.modificarTodoPrestamo.DtLectorArray
      */
     @WebMethod
@@ -44,16 +54,6 @@ public interface ModificarTodoPrestamoPublish {
     @WebResult(partName = "return")
     @Action(input = "http://publicadores/ModificarTodoPrestamoPublish/getListadoBibliotecariosRequest", output = "http://publicadores/ModificarTodoPrestamoPublish/getListadoBibliotecariosResponse")
     public DtBibliotecarioArray getListadoBibliotecarios();
-
-    /**
-     * 
-     * @return
-     *     returns cliente.modificarTodoPrestamo.DtMaterialArray
-     */
-    @WebMethod
-    @WebResult(partName = "return")
-    @Action(input = "http://publicadores/ModificarTodoPrestamoPublish/getListadoMaterialesRequest", output = "http://publicadores/ModificarTodoPrestamoPublish/getListadoMaterialesResponse")
-    public DtMaterialArray getListadoMateriales();
 
     /**
      * 

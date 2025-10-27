@@ -68,16 +68,16 @@
                     </form>
                 </li>
                 <li class="nav-item">
-                    <form action="MaterialesPopularesServlet" method="post">
-                        <button type="submit" class="nav-link btn btn-outline-warning mb-2">
-                            Materiales Populares
+                    <form action="ReportePrestamosZonaServlet" method="post">
+                        <button type="submit" class="nav-link btn btn-outline-dark mb-2">
+                            Reporte Préstamos por Zona
                         </button>
                     </form>
                 </li>
                 <li class="nav-item">
-                    <form action="ReportePrestamosZonaServlet" method="post">
-                        <button type="submit" class="nav-link btn btn-outline-dark mb-2">
-                            Reporte Préstamos por Zona
+                    <form action="MaterialesPopularesServlet" method="post">
+                        <button type="submit" class="nav-link btn btn-outline-warning mb-2">
+                            Materiales Populares
                         </button>
                     </form>
                 </li>

@@ -18,7 +18,6 @@
     <p class="text-muted">Desde aquí pronto podrás ver tus préstamos, historial y recomendaciones.</p>
 
     <div class="mt-3">
-        <a href="index.jsp" class="btn btn-link">Ir al inicio</a>
         <a href="login.jsp" class="btn btn-link">Cerrar sesión</a>
 <div class="container-fluid">
     <div class="row">

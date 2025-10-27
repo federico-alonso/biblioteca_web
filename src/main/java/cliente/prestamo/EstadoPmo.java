@@ -14,9 +14,9 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;simpleType name="estadoPmo">
  *   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
  *     &lt;enumeration value="PENDIENTE"/>
- *     &lt;enumeration value="ACTIVO"/>
  *     &lt;enumeration value="DEVUELTO"/>
  *     &lt;enumeration value="EN_CURSO"/>
+ *     &lt;enumeration value="RECHAZADO"/>
  *   &lt;/restriction>
  * &lt;/simpleType>
  * </pre>
@@ -27,9 +27,9 @@ import javax.xml.bind.annotation.XmlType;
 public enum EstadoPmo {
 
     PENDIENTE,
-    ACTIVO,
     DEVUELTO,
-    EN_CURSO;
+    EN_CURSO,
+    RECHAZADO;
 
     public String value() {
         return name();
